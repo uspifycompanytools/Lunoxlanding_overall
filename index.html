@@ -278,7 +278,31 @@ section{padding:90px 0;position:relative;overflow:hidden}
   padding:18px 24px;border-radius:16px;display:inline-block;
 }
 .process-note-wrap{text-align:center}
-
+.locations{margin-top:70px}
+.locations-title{font-family:'Playfair Display','Noto Sans SC',serif;text-align:center;color:var(--deep);font-size:clamp(24px,2.6vw,32px);font-weight:700;margin-bottom:30px}
+.locations-title em{font-style:italic;color:var(--orchid)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.loc-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 34px rgba(73,0,82,.08);display:flex;flex-direction:column;transition:transform .25s}
+.loc-card:hover{transform:translateY(-4px)}
+.loc-img{aspect-ratio:16/10;background:var(--soft);overflow:hidden}
+.loc-img img{width:100%;height:100%;object-fit:cover;border-radius:0;display:block}
+.loc-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:14px}
+.loc-name{font-family:'Playfair Display','Noto Sans SC',serif;font-size:22px;font-weight:700;color:var(--deep);line-height:1.2}
+.loc-name span{font-style:italic;color:var(--orchid);font-weight:500;font-size:16px}
+.loc-row{display:flex;gap:12px;align-items:flex-start}
+.loc-label{flex-shrink:0;min-width:64px;background:var(--soft);color:var(--deep);font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;text-align:center;letter-spacing:.5px;margin-top:2px}
+.loc-text{font-size:14px;line-height:1.65;color:var(--ink)}
+.loc-dim{color:var(--mute);font-size:13px}
+@media (max-width:860px){
+  .locations{margin-top:50px}
+  .locations-title{font-size:22px;margin-bottom:22px}
+  .location-grid{grid-template-columns:1fr;gap:20px}
+  .loc-body{padding:20px 20px 22px;gap:12px}
+  .loc-name{font-size:20px}
+  .loc-name span{font-size:14px;display:block;margin-top:2px}
+  .loc-label{min-width:56px;font-size:11px;padding:4px 8px}
+  .loc-text{font-size:13.5px}
+}
 /* ===== FINAL CTA (A10: re-sequenced) ===== */
 .final-cta{
   background:linear-gradient(135deg,var(--deep) 0%,#2E0036 100%);
@@ -720,7 +744,39 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     <div class="process-note-wrap">
       <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
     </div>
-
+    <div class="locations">
+      <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+      <div class="location-grid">
+        <div class="loc-card">
+          <div class="loc-img"><img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur"/></div>
+          <div class="loc-body">
+            <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
+            <div class="loc-row">
+              <div class="loc-label">地址</div>
+              <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</div>
+            </div>
+            <div class="loc-row">
+              <div class="loc-label">营业时间</div>
+              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Wed – Mon)</span><br>9:30am – 6:00pm <span class="loc-dim">(Tues)</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="loc-card">
+          <div class="loc-img"><img src="butterworth.webp" alt="Lunox Butterworth Penang"/></div>
+          <div class="loc-body">
+            <div class="loc-name">Butterworth <span>· Penang</span></div>
+            <div class="loc-row">
+              <div class="loc-label">地址</div>
+              <div class="loc-text">Pusat Perniagaan Raja Uda, 16, Jalan Raja Uda, Kampung Baharu, 12300 Butterworth, Pulau Pinang</div>
+            </div>
+            <div class="loc-row">
+              <div class="loc-label">营业时间</div>
+              <div class="loc-text">10am – 6pm <span class="loc-dim">(Tues – Sun)</span><br>Closed <span class="loc-dim">(Mon)</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="cta-center">
       <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
     </div>
@@ -934,7 +990,7 @@ function submitForm(e){
 
 function goWhatsapp(){
   const msg = encodeURIComponent('你好！我刚刚填了资料，想预约 Lunox 的免费睡眠咨询。');
-  window.open('https://wa.me/60123456789?text=' + msg,'_blank');
+  window.open('https://wa.me/60102266120?text=' + msg,'_blank');
 }
 </script>
 
