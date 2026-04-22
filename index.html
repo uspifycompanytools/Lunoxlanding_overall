@@ -917,18 +917,6 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
           </div>
         </div>
 
-        <div class="form-row full">
-          <label>8. 上传侧面照 <span class="opt">· optional（帮助医师提前分析你的姿态）</span></label>
-          <div class="sample-pic">
-            <img src="side-profile-sample.jpeg" alt="Sample side profile" />
-            <span>👆 参考姿势：自然站立，手自然垂放，全身侧面入镜</span>
-          </div>
-          <label class="file-up" for="sidepic">
-            📸 点击上传 / 拖拽图片至这里
-            <input type="file" id="sidepic" name="sidepic" accept="image/*" style="display:none" />
-          </label>
-        </div>
-
         <button type="submit" class="btn-pill form-submit">
           Submit →
         </button>
@@ -977,16 +965,6 @@ document.querySelectorAll('.chip-opt input').forEach(inp=>{
       parent.classList.toggle('selected', e.target.checked);
     }
   });
-});
-
-document.getElementById('sidepic').addEventListener('change',(e)=>{
-  const lbl = e.target.closest('.file-up');
-  if(e.target.files.length){
-    lbl.innerHTML = '✓ 已选择：' + e.target.files[0].name;
-    lbl.style.borderColor='var(--deep)';
-    lbl.style.color='var(--deep)';
-    lbl.appendChild(e.target);
-  }
 });
 
 function submitForm(e){
