@@ -458,7 +458,10 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   font-size:13px;cursor:pointer;background:var(--soft-2);
 }
 .form-row .file-up:hover{border-color:var(--deep);color:var(--deep)}
-.form-submit{
+.sample-pic{display:flex;align-items:center;gap:12px;margin:8px 0 10px;padding:10px;background:var(--soft-2);border-radius:10px}
+.sample-pic img{width:72px;height:96px;object-fit:cover;border-radius:8px;flex-shrink:0}
+.sample-pic span{font-size:12px;color:var(--mute);line-height:1.4}
+  .form-submit{
   width:100%;margin-top:8px;justify-content:center;
 }
 .support-line{
@@ -916,6 +919,10 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
         <div class="form-row full">
           <label>8. 上传侧面照 <span class="opt">· optional（帮助医师提前分析你的姿态）</span></label>
+          <div class="sample-pic">
+            <img src="side-profile-sample.jpeg" alt="Sample side profile" />
+            <span>👆 参考姿势：自然站立，手自然垂放，全身侧面入镜</span>
+          </div>
           <label class="file-up" for="sidepic">
             📸 点击上传 / 拖拽图片至这里
             <input type="file" id="sidepic" name="sidepic" accept="image/*" style="display:none" />
@@ -927,7 +934,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         </button>
 
         <p class="support-line">
-          * 有其他问题，<a href="#" onclick="goWhatsapp();return false;">点击这里联系客服</a> *
+        * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
         </p>
       </form>
     </div>
@@ -1003,13 +1010,17 @@ function submitForm(e){
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(payload)
   }).catch(()=>{});
-  document.getElementById('formView').style.display='none';
-  document.getElementById('successView').style.display='block';
+  goWhatsapp();
 }
 
 function goWhatsapp(){
   const msg = encodeURIComponent('你好！我刚刚填了资料，想预约 Lunox 的免费睡眠咨询。');
-  window.open('https://wa.me/60102266120?text=' + msg,'_blank');
+  window.open('https://wa.me/60123456789?text=' + msg,'_blank');
+}
+
+function goWhatsappSupport(){
+  const msg = encodeURIComponent('我有其他问题，请帮我对接客服');
+  window.open('https://wa.me/60123456789?text=' + msg,'_blank');
 }
 </script>
 
