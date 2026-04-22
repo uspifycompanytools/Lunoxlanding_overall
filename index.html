@@ -180,9 +180,9 @@ section{padding:90px 0;position:relative;overflow:hidden}
 }
 .proof-item{
   display:flex;align-items:center;gap:18px;
-  justify-content:flex-start;
+  justify-content:center;
 }
-.proof-item.right{justify-content:flex-start}
+.proof-item.right{justify-content:center}
 .proof-item img{
   height:80px;width:auto;max-width:140px;object-fit:contain;
   flex-shrink:0;
@@ -461,6 +461,12 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 .sample-pic{display:flex;align-items:center;gap:12px;margin:8px 0 10px;padding:10px;background:var(--soft-2);border-radius:10px}
 .sample-pic img{width:72px;height:96px;object-fit:cover;border-radius:8px;flex-shrink:0}
 .sample-pic span{font-size:12px;color:var(--mute);line-height:1.4}
+.logo-marquee{overflow:hidden;width:100%;position:relative;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%)}
+.logo-track{display:flex;align-items:center;gap:60px;width:max-content;animation:logoLoop 40s linear infinite}
+.logo-track img{height:60px;width:auto;object-fit:contain;flex-shrink:0;opacity:.85;filter:grayscale(20%)}
+.logo-track img:hover{opacity:1;filter:none}
+@keyframes logoLoop{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:768px){.logo-track{gap:40px;animation-duration:30s}.logo-track img{height:44px}}
   .form-submit{
   width:100%;margin-top:8px;justify-content:center;
 }
@@ -505,7 +511,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     grid-template-columns:1fr;gap:20px;
     padding:24px 0;
   }
-  .proof-item{justify-content:flex-start}
+  .proof-item{justify-content:center;text-align:center}
   .proof-item img{height:60px;max-width:110px}
   .proof-item .txt{font-size:14px}
 
@@ -548,7 +554,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .hero-tag{font-size:15px}
   .bullets{gap:12px 16px}
   .bullets li{font-size:13.5px}
-  .proof-item{flex-direction:column;align-items:flex-start;gap:10px}
+  .proof-item{flex-direction:column;align-items:center;gap:10px;text-align:center}
   .proof-item img{height:56px}
 }
 </style>
@@ -601,7 +607,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     
     <!-- Embedded review picture -->
     <div class="testi-hero">
-      <img src="element/v1/review.png" alt="顾客反馈 review" />
+   <img src="review-v2.png" alt="顾客反馈 review" />
     </div>
 
     <!-- Two inline proofs at bottom (like layout.png) -->
@@ -615,7 +621,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         </div>
       </div>
       <div class="proof-item right">
-        <img src="element/v1/google-review.png" alt="Google Reviews 5 stars" />
+        <img src="element/v2/google-review v2.png" alt="Google Reviews 5 stars" />
         <div class="txt">
           <strong>Google 5 星顾客好评</strong>
         </div>
@@ -627,8 +633,36 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
         与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证
       </h3>
-      <img src="element/v1/partners-logo.png" alt="Partners"
-           style="background:transparent;border-radius:0;max-width:100%;margin:0 auto;display:block" />
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <img src="partner-aikang.png" alt=""/>
+          <img src="partner-chironature.png" alt=""/>
+          <img src="partner-infinite.png" alt=""/>
+          <img src="partner-persistence.png" alt=""/>
+          <img src="partner-gtc.png" alt=""/>
+          <img src="partner-tcm.png" alt=""/>
+          <img src="partner-chirohealth.png" alt=""/>
+          <img src="partner-infinity.png" alt=""/>
+          <img src="partner-posture.png" alt=""/>
+          <img src="partner-topcare.png" alt=""/>
+          <img src="partner-reve.png" alt=""/>
+          <img src="partner-asap.png" alt=""/>
+          <img src="partner-group150.png" alt=""/>
+          <img src="partner-aikang.png" alt="" aria-hidden="true"/>
+          <img src="partner-chironature.png" alt="" aria-hidden="true"/>
+          <img src="partner-infinite.png" alt="" aria-hidden="true"/>
+          <img src="partner-persistence.png" alt="" aria-hidden="true"/>
+          <img src="partner-gtc.png" alt="" aria-hidden="true"/>
+          <img src="partner-tcm.png" alt="" aria-hidden="true"/>
+          <img src="partner-chirohealth.png" alt="" aria-hidden="true"/>
+          <img src="partner-infinity.png" alt="" aria-hidden="true"/>
+          <img src="partner-posture.png" alt="" aria-hidden="true"/>
+          <img src="partner-topcare.png" alt="" aria-hidden="true"/>
+          <img src="partner-reve.png" alt="" aria-hidden="true"/>
+          <img src="partner-asap.png" alt="" aria-hidden="true"/>
+          <img src="partner-group150.png" alt="" aria-hidden="true"/>
+        </div>
+      </div>
     </div>
   </div>
 </section>
