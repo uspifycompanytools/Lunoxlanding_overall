@@ -984,6 +984,25 @@ document.getElementById('sidepic').addEventListener('change',(e)=>{
 
 function submitForm(e){
   e.preventDefault();
+  const fd = new FormData(document.getElementById('bookingForm'));
+  const payload = {
+    data: [{
+      Timestamp: new Date().toLocaleString('en-MY', {timeZone:'Asia/Kuala_Lumpur'}),
+      Name: fd.get('name') || '',
+      Phone: fd.get('phone') || '',
+      Height: fd.get('height') || '',
+      Weight: fd.get('weight') || '',
+      Product: fd.get('product') || '',
+      SleepPosition: fd.get('sleep') || '',
+      Issues: (fd.getAll('issue') || []).join(', '),
+      Source: 'Landing Page'
+    }]
+  };
+  fetch('https://sheetdb.io/api/v1/n4gz8k50ndmrk', {
+    method: 'POST',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(payload)
+  }).catch(()=>{});
   document.getElementById('formView').style.display='none';
   document.getElementById('successView').style.display='block';
 }
