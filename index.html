@@ -98,7 +98,7 @@ section{padding:90px 0;position:relative;overflow:hidden}
   text-align:center;margin:0 auto 40px;
 }
 .hero-brand img{
-  height:56px;width:auto;display:inline-block;
+  height:73px;width:auto;display:inline-block;
   border-radius:0;background:transparent;
 }
 .cred-bar{
@@ -493,7 +493,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   /* HERO */
   .hero{padding:40px 0 60px}
   .hero-brand{margin:0 auto 28px}
-  .hero-brand img{height:42px}
+  .hero-brand img{height:55px}
   .hero-grid{grid-template-columns:1fr;gap:30px}
   .cred-bar{font-size:13px;padding:8px 14px;margin-bottom:20px}
   .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
@@ -791,7 +791,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             </div>
             <div class="loc-row">
               <div class="loc-label">营业时间</div>
-              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Wed – Mon)</span><br>9:30am – 6:00pm <span class="loc-dim">(Tues)</span></div>
+              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span>
             </div>
           </div>
         </div>
@@ -838,7 +838,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       </p>
 
       <div class="review-shot">
-        <img src="element/v1/apptmt-full-1-star.png" alt="1 star review" />
+        <img src="element/v2/apptmt-full-hire.png" alt="1 star review" />
       </div>
 
       <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
@@ -859,7 +859,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       </details>
       <details class="faq-item">
         <summary>Q: 枕头 / 床多少钱？</summary>
-        <div class="a">枕头 <strong>RM289–RM329</strong>。床褥从 <strong>RM3,150</strong> 起，看材质和尺寸而定。</div>
+        <div class="a">枕头 <strong>RM299–RM379</strong>。床褥从 <strong>RM3,150</strong> 起，看材质和尺寸而定。</div>
       </details>
       <details class="faq-item">
         <summary>Q: 可以分期吗？</summary>
@@ -880,8 +880,8 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     <div class="footer-logo">
       <img src="lunox-logo/lunox-logo-white.png" alt="Lunox Mattress" />
     </div>
-    <p>www.lunox.my</p>
-    <p>© 2026 Nature Home Living Sdn. Bhd. (1306346-D)</p>
+    <p>https://lunox.my</p>
+    <p>© 2026 Nature Home Living Sdn Bhd 201801044314 (1306346-D)</p>
   </div>
 </footer>
 
@@ -901,7 +901,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
   <!-- 1. Product -->
   <div class="form-row full">
-    <label>1. 要预约看枕头还是床垫？*</label>
+    <label>要预约看枕头还是床垫？*</label>
     <div class="radio-group">
       <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
       <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
@@ -910,7 +910,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
   <!-- 2. Location (Online hides when mattress) -->
   <div class="form-row full">
-    <label>2. 咨询地点 *</label>
+    <label>咨询地点 *</label>
     <div class="radio-group">
       <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
       <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
@@ -921,30 +921,34 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   <!-- 3. Name + Phone (always) -->
   <div class="form-grid">
     <div class="form-row">
-      <label>3. 姓名 *</label>
+      <label>姓名 *</label>
       <input type="text" name="name" required placeholder="你的名字" />
     </div>
     <div class="form-row">
-      <label>4. 电话号码 *</label>
+      <label>电话号码 *</label>
       <input type="tel" name="phone" required placeholder="012-3456789" />
     </div>
+    <div class="form-row">
+  <label>年龄 *</label>
+  <input type="number" name="age" required placeholder="30" min="1" max="120" />
+</div>
   </div>
 
   <!-- 4. Height + Weight (only pillow + Online) -->
   <div class="form-grid" id="measureRow" style="display:none">
     <div class="form-row">
-      <label>5. 身高 (cm) *</label>
+      <label>身高 (cm) *</label>
       <input type="number" name="height" placeholder="170" />
     </div>
     <div class="form-row">
-      <label>6. 体重 (kg) *</label>
+      <label>体重 (kg) *</label>
       <input type="number" name="weight" placeholder="65" />
     </div>
   </div>
 
   <!-- 5. Sleep posture (only pillow + Online) -->
   <div class="form-row full" id="sleepRow" style="display:none">
-    <label>7. 平时睡姿 *</label>
+    <label>平时睡姿 *</label>
     <div class="radio-group">
       <label class="chip-opt"><input type="radio" name="sleep" value="侧躺">侧躺</label>
       <label class="chip-opt"><input type="radio" name="sleep" value="平躺">平躺</label>
@@ -954,7 +958,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
   <!-- 6. Current problems (always) -->
   <div class="form-row full">
-    <label>8. 目前睡眠问题 <span class="opt">· 多选</span></label>
+    <label>目前睡眠问题 <span class="opt">· 多选</span></label>
     <div class="check-group">
       <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
       <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
@@ -1056,6 +1060,7 @@ function submitForm(e){
   const data = {
     name: fd.get('name') || '',
     phone: fd.get('phone') || '',
+    age: fd.get('age') || '',
     product: fd.get('product') || '',
     location: fd.get('location') || '',
     height: fd.get('height') || '',
