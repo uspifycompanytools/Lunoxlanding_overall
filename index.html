@@ -897,64 +897,82 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       </div>
 
       <form id="bookingForm" onsubmit="submitForm(event)">
-        <div class="form-grid">
-          <div class="form-row">
-            <label>1. 姓名 *</label>
-            <input type="text" name="name" required placeholder="你的名字" />
-          </div>
-          <div class="form-row">
-            <label>2. 电话号码 *</label>
-            <input type="tel" name="phone" required placeholder="012-3456789" />
-          </div>
-          <div class="form-row">
-            <label>3. 身高 (cm) <span class="opt">· optional</span></label>
-            <input type="number" name="height" placeholder="170" />
-          </div>
-          <div class="form-row">
-            <label>4. 体重 (kg) <span class="opt">· optional</span></label>
-            <input type="number" name="weight" placeholder="65" />
-          </div>
-        </div>
 
-        <div class="form-row full">
-          <label>5. 要预约看床还是枕头？*</label>
-          <div class="radio-group">
-            <label class="chip-opt"><input type="radio" name="product" value="床" required>床</label>
-            <label class="chip-opt"><input type="radio" name="product" value="枕头">枕头</label>
-            <label class="chip-opt"><input type="radio" name="product" value="都看">都看</label>
-          </div>
-        </div>
+  <!-- 1. Product -->
+  <div class="form-row full">
+    <label>1. 要预约看枕头还是床垫？*</label>
+    <div class="radio-group">
+      <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
+      <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
+    </div>
+  </div>
 
-        <div class="form-row full">
-          <label>6. 平时睡姿 *</label>
-          <div class="radio-group">
-            <label class="chip-opt"><input type="radio" name="sleep" value="侧躺" required>侧躺</label>
-            <label class="chip-opt"><input type="radio" name="sleep" value="平躺">平躺</label>
-            <label class="chip-opt"><input type="radio" name="sleep" value="两种都有">两种都有</label>
-          </div>
-        </div>
+  <!-- 2. Location (Online hides when mattress) -->
+  <div class="form-row full">
+    <label>2. 咨询地点 *</label>
+    <div class="radio-group">
+      <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
+      <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
+      <label class="chip-opt" id="onlineOpt"><input type="radio" name="location" value="Online">Online</label>
+    </div>
+  </div>
 
-        <div class="form-row full">
-          <label>7. 目前睡眠问题 <span class="opt">· 多选</span></label>
-          <div class="check-group">
-            <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
-          </div>
-        </div>
+  <!-- 3. Name + Phone (always) -->
+  <div class="form-grid">
+    <div class="form-row">
+      <label>3. 姓名 *</label>
+      <input type="text" name="name" required placeholder="你的名字" />
+    </div>
+    <div class="form-row">
+      <label>4. 电话号码 *</label>
+      <input type="tel" name="phone" required placeholder="012-3456789" />
+    </div>
+  </div>
 
-        <button type="submit" class="btn-pill form-submit">
-          Submit →
-        </button>
+  <!-- 4. Height + Weight (only pillow + Online) -->
+  <div class="form-grid" id="measureRow" style="display:none">
+    <div class="form-row">
+      <label>5. 身高 (cm) *</label>
+      <input type="number" name="height" placeholder="170" />
+    </div>
+    <div class="form-row">
+      <label>6. 体重 (kg) *</label>
+      <input type="number" name="weight" placeholder="65" />
+    </div>
+  </div>
 
-        <p class="support-line">
-        * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
-        </p>
-      </form>
+  <!-- 5. Sleep posture (only pillow + Online) -->
+  <div class="form-row full" id="sleepRow" style="display:none">
+    <label>7. 平时睡姿 *</label>
+    <div class="radio-group">
+      <label class="chip-opt"><input type="radio" name="sleep" value="侧躺">侧躺</label>
+      <label class="chip-opt"><input type="radio" name="sleep" value="平躺">平躺</label>
+      <label class="chip-opt"><input type="radio" name="sleep" value="两种都有">两种都有</label>
+    </div>
+  </div>
+
+  <!-- 6. Current problems (always) -->
+  <div class="form-row full">
+    <label>8. 目前睡眠问题 <span class="opt">· 多选</span></label>
+    <div class="check-group">
+      <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
+      <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
+    </div>
+  </div>
+
+  <button type="submit" class="btn-pill form-submit">
+    Submit →
+  </button>
+
+  <p class="support-line">
+  * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
+  </p>
+</form>
     </div>
 
     <!-- SUCCESS VIEW -->
@@ -994,22 +1012,64 @@ document.querySelectorAll('.chip-opt input').forEach(inp=>{
     } else {
       parent.classList.toggle('selected', e.target.checked);
     }
+    updateFormFields();
   });
 });
+
+function updateFormFields(){
+  const product = document.querySelector('input[name="product"]:checked');
+  const location = document.querySelector('input[name="location"]:checked');
+  const onlineOpt = document.getElementById('onlineOpt');
+  const measureRow = document.getElementById('measureRow');
+  const sleepRow = document.getElementById('sleepRow');
+
+  // Hide Online immediately if mattress is picked
+  if(product && product.value==='床垫'){
+    onlineOpt.style.display='none';
+    const onlineInput = onlineOpt.querySelector('input');
+    if(onlineInput.checked){
+      onlineInput.checked = false;
+      onlineOpt.classList.remove('selected');
+    }
+  } else {
+    onlineOpt.style.display='';
+  }
+
+  // Show height/weight/sleep only for pillow + Online
+  const loc = document.querySelector('input[name="location"]:checked');
+  const isPillowOnline = product && product.value==='枕头' && loc && loc.value==='Online';
+  measureRow.style.display = isPillowOnline ? '' : 'none';
+  sleepRow.style.display = isPillowOnline ? '' : 'none';
+
+  // Toggle required on conditional fields
+  document.querySelector('input[name="height"]').required = isPillowOnline;
+  document.querySelector('input[name="weight"]').required = isPillowOnline;
+  document.querySelectorAll('input[name="sleep"]').forEach(r => r.required = isPillowOnline);
+}
+
+let lastFormData = null;
 
 function submitForm(e){
   e.preventDefault();
   const fd = new FormData(document.getElementById('bookingForm'));
+  const data = {
+    name: fd.get('name') || '',
+    phone: fd.get('phone') || '',
+    product: fd.get('product') || '',
+    location: fd.get('location') || '',
+    height: fd.get('height') || '',
+    weight: fd.get('weight') || '',
+    sleep: fd.get('sleep') || '',
+    issues: (fd.getAll('issue') || []).join('、')
+  };
+  lastFormData = data;
   const payload = {
     data: [{
       Timestamp: new Date().toLocaleString('en-MY', {timeZone:'Asia/Kuala_Lumpur'}),
-      Name: fd.get('name') || '',
-      Phone: fd.get('phone') || '',
-      Height: fd.get('height') || '',
-      Weight: fd.get('weight') || '',
-      Product: fd.get('product') || '',
-      SleepPosition: fd.get('sleep') || '',
-      Issues: (fd.getAll('issue') || []).join(', '),
+      Name: data.name, Phone: data.phone,
+      Product: data.product, Location: data.location,
+      Height: data.height, Weight: data.weight,
+      SleepPosition: data.sleep, Issues: data.issues,
       Source: 'Landing Page'
     }]
   };
@@ -1018,12 +1078,23 @@ function submitForm(e){
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(payload)
   }).catch(()=>{});
-  goWhatsapp();
+  goWhatsapp(data);
 }
 
-function goWhatsapp(){
-  const msg = encodeURIComponent('你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。');
-  window.open('https://wa.me/60139668518?text=' + msg,'_blank');
+function goWhatsapp(d){
+  const info = d || lastFormData;
+  let text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
+  if(info){
+    text += '1. 姓名：' + info.name + '\n';
+    text += '2. 电话号码：' + info.phone + '\n';
+    text += '3. 看枕头/床垫：' + info.product + '\n';
+    text += '4. 咨询地点：' + info.location + '\n';
+    if(info.height) text += '5. 身高 (cm)：' + info.height + '\n';
+    if(info.weight) text += '6. 体重 (kg)：' + info.weight + '\n';
+    if(info.sleep)  text += '7. 平时睡姿：' + info.sleep + '\n';
+    text += '8. 目前问题：' + (info.issues || '-');
+  }
+  window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text),'_blank');
 }
 
 function goWhatsappSupport(){
