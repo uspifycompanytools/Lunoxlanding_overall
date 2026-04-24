@@ -853,8 +853,12 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     <h2 class="h-section">常见问题</h2>
 
     <div class="faq">
-      <details class="faq-item">
-        <summary>Q: 咨询要收费吗？</summary>
+  <details class="faq-item">
+    <summary>Q: 可以 walk-in 吗？</summary>
+    <div class="a">因为我们医师的人数和时间有限，目前我们只接受预约。</div>
+  </details>
+  <details class="faq-item">
+    <summary>Q: 咨询要收费吗？</summary>
         <div class="a">我们会征收 <strong>RM25 的 专业咨询费</strong>，当天购买产品时会从里面扣除。</div>
       </details>
       <details class="faq-item">
@@ -929,9 +933,13 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       <input type="tel" name="phone" required placeholder="012-3456789" />
     </div>
     <div class="form-row">
-  <label>年龄 *</label>
-  <input type="number" name="age" required placeholder="30" min="1" max="120" />
-</div>
+      <label>年龄 *</label>
+      <input type="number" name="age" required placeholder="30" min="1" max="120" />
+  </div>
+    <div class="form-row" id="paxRow" style="display:none">
+      <label>几位要来 *</label>
+      <input type="number" name="pax" placeholder="2" min="1" max="10" />
+    </div>
   </div>
 
   <!-- 4. Height + Weight (only pillow + Online) -->
@@ -1050,6 +1058,10 @@ function updateFormFields(){
   document.querySelector('input[name="height"]').required = isPillowOnline;
   document.querySelector('input[name="weight"]').required = isPillowOnline;
   document.querySelectorAll('input[name="sleep"]').forEach(r => r.required = isPillowOnline);
+  const paxRow = document.getElementById('paxRow');
+const isInPerson = loc && (loc.value==='KL 8Trium' || loc.value==='Penang Butterworth');
+paxRow.style.display = isInPerson ? '' : 'none';
+document.querySelector('input[name="pax"]').required = isInPerson;
 }
 
 let lastFormData = null;
@@ -1057,10 +1069,11 @@ let lastFormData = null;
 function submitForm(e){
   e.preventDefault();
   const fd = new FormData(document.getElementById('bookingForm'));
-  const data = {
+const data = {
     name: fd.get('name') || '',
     phone: fd.get('phone') || '',
     age: fd.get('age') || '',
+    pax: fd.get('pax') || '',
     product: fd.get('product') || '',
     location: fd.get('location') || '',
     height: fd.get('height') || '',
@@ -1073,6 +1086,7 @@ function submitForm(e){
     data: [{
       Timestamp: new Date().toLocaleString('en-MY', {timeZone:'Asia/Kuala_Lumpur'}),
       Name: data.name, Phone: data.phone,
+      Age: data.age, Pax: data.pax,
       Product: data.product, Location: data.location,
       Height: data.height, Weight: data.weight,
       SleepPosition: data.sleep, Issues: data.issues,
@@ -1091,14 +1105,16 @@ function goWhatsapp(d){
   const info = d || lastFormData;
   let text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
   if(info){
-    text += '1. 姓名：' + info.name + '\n';
-    text += '2. 电话号码：' + info.phone + '\n';
-    text += '3. 看枕头/床垫：' + info.product + '\n';
-    text += '4. 咨询地点：' + info.location + '\n';
-    if(info.height) text += '5. 身高 (cm)：' + info.height + '\n';
-    if(info.weight) text += '6. 体重 (kg)：' + info.weight + '\n';
-    if(info.sleep)  text += '7. 平时睡姿：' + info.sleep + '\n';
-    text += '8. 目前问题：' + (info.issues || '-');
+text += '1. 姓名：' + info.name + '\n';
+text += '2. 电话号码：' + info.phone + '\n';
+text += '3. 年龄：' + info.age + '\n';
+text += '4. 几位要来：' + info.pax + '\n';
+text += '5. 看枕头/床垫：' + info.product + '\n';
+text += '6. 咨询地点：' + info.location + '\n';
+if(info.height) text += '7. 身高 (cm)：' + info.height + '\n';
+if(info.weight) text += '8. 体重 (kg)：' + info.weight + '\n';
+if(info.sleep)  text += '9. 平时睡姿：' + info.sleep + '\n';
+text += '10. 目前问题：' + (info.issues || '-');
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text),'_blank');
 }
