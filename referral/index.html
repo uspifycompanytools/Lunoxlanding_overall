@@ -400,7 +400,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .hero-brand{margin:0 auto 28px}
   .hero-brand img{height:55px}
   .hero-grid{grid-template-columns:1fr;gap:30px}
-  .cred-bar{display:inline-flex;align-items:center;gap:10px;align-self:center;font-size:12px;padding:8px 14px;white-space:nowrap;overflow:hidden;max-width:100%;}
+  .cred-bar{display:inline-flex;align-items:center;gap:10px;align-self:center;font-size:12px;padding:8px 14px;max-width:100%;}
   .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
   .hero-tag{font-size:16px;margin-top:16px}
   .hero-img-wrap{margin-top:20px}
@@ -461,7 +461,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 <div style="text-align:center;margin-bottom:40px">
   <div class="cred-bar" style="margin-bottom:20px">
     <span class="dot"></span>
-    帮助超过 <strong>&nbsp;1,200+&nbsp;</strong> 位顾客找到适合自己的床和枕头
+    帮助超过<strong>&nbsp;1,200+&nbsp;</strong>位顾客找到适合自己的床和枕头
   </div>
   <h1 id="hero-h1" style="font-family:'Playfair Display','Noto Sans SC',serif;font-size:clamp(32px,4vw,54px);line-height:1.12;font-weight:700;color:var(--deep);letter-spacing:-.8px">全马第一个，由专业 <em style="font-style:italic;color:var(--orchid);font-weight:600">Healthcare</em> 团队服务你的睡眠品牌</h1>
   <p id="hero-sub" class="hero-tag" style="text-align:center;margin:18px auto 0;max-width:560px">我们只做一件事：用我们的专业医学知识，帮你解决睡眠问题。</p>
@@ -842,7 +842,7 @@ const translations = {
     ctaBtn: 'Book My Slot! →',
   },
   cn: {
-    credBar: '帮助超过 <strong>&nbsp;1,200+&nbsp;</strong> 位顾客找到适合自己的床和枕头',
+    credBar: '帮助超过<strong>&nbsp;1,200+&nbsp;</strong>位顾客找到适合自己的床和枕头',
     h1: '全马第一个，由专业 <em style="font-style:italic;color:var(--orchid);font-weight:600">Healthcare</em> 团队服务你的睡眠品牌',
     heroSub: '我们只做一件事：用我们的专业医学知识，帮你解决睡眠问题。',
     miniTitle: '填写你资料，让<em> 医师 </em>提前了解你',
@@ -878,7 +878,7 @@ function setLang(lang) {
 
   // Cred bar (target the text node after the dot span)
   const credBar = document.querySelector('.cred-bar');
-  credBar.innerHTML = '<span class="dot"></span>' + t.credBar;
+  credBar.innerHTML = '<span class="dot" style="width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18);flex-shrink:0;display:inline-block"></span>' + t.credBar;
 
   document.getElementById('hero-h1').innerHTML = t.h1;
   document.getElementById('hero-sub').innerHTML = t.heroSub;
