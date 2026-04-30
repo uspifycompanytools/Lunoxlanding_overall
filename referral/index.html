@@ -735,8 +735,8 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
     <!-- FORM VIEW -->
     <div id="formView">
-      <h3>填写你资料，让 <em>医师</em> 提前了解你</h3>
-      <div class="sub">
+      <h3 id="modal-title">填写你资料，让 <em>医师</em> 提前了解你</h3>
+      <div id="modal-sub" class="sub">
         <strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 "<strong>全额扣除</strong>！
       </div>
 
@@ -744,50 +744,57 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
         <!-- 1. Product -->
         <div class="form-row full">
-          <label>要预约看枕头还是床垫？*</label>
+          <label id="modal-label-product">要预约看枕头还是床垫？*</label>
           <div class="radio-group">
-            <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
-            <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
-            <span class="error-msg">⚠ 请选择一项</span>
+            <label class="chip-opt"><input type="radio" name="product" value="枕头" required><span id="modal-opt-pillow">枕头 Pillow</span></label>
+            <label class="chip-opt"><input type="radio" name="product" value="床垫"><span id="modal-opt-mattress">床垫 Mattress</span></label>
+            <span id="modal-err-product" class="error-msg">⚠ 请选择一项</span>
           </div>
         </div>
 
         <!-- 2. Location (no Online) -->
         <div class="form-row full">
-          <label>咨询地点 *</label>
+          <label id="modal-label-location">咨询地点 *</label>
           <div class="radio-group">
             <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
             <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
-            <span class="error-msg">⚠ 请选择一项</span>
+            <label class="chip-opt"><input type="radio" name="location" value="Bukit Jalil HQ">Bukit Jalil HQ</label>
+            <span id="modal-err-location" class="error-msg">⚠ 请选择一项</span>
           </div>
         </div>
 
-        <!-- 3. Referral (NEW) -->
+        <!-- 3. Referral — split into 2 fields -->
         <div class="form-row full">
-          <label>由哪位医生 / 诊所介绍？ *</label>
-          <input type="text" name="referral" required />
+          <label id="modal-label-referral-person">由哪位脊骨师/医生/物疗师/药剂师介绍？ *</label>
+          <input type="text" name="referral_person" required />
+          <span id="modal-err-fill" class="error-msg">⚠ 请填写此栏</span>
+        </div>
+
+        <div class="form-row full">
+          <label id="modal-label-referral-clinic">他/她就业的诊所 *</label>
+          <input type="text" name="referral_clinic" required />
           <span class="error-msg">⚠ 请填写此栏</span>
         </div>
 
         <!-- 4. Name + Phone + Age + Pax -->
         <div class="form-grid">
           <div class="form-row">
-            <label>姓名 *</label>
+            <label id="modal-label-name">姓名 *</label>
             <input type="text" name="name" required />
             <span class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
-            <label>电话号码 *</label>
+            <label id="modal-label-phone">电话号码 *</label>
             <input type="tel" name="phone" required />
             <span class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
-            <label>年龄 *</label>
+            <label id="modal-label-age">年龄 *</label>
             <input type="number" name="age" min="1" max="120" required />
             <span class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
-            <label>几位要咨询 *</label>
+            <label id="modal-label-pax">几位要咨询 *</label>
             <input type="number" name="pax" min="1" required />
             <span class="error-msg">⚠ 请填写此栏</span>
           </div>
@@ -795,20 +802,20 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
         <!-- 5. Sleep problems -->
         <div class="form-row full">
-          <label>目前睡眠问题 <span class="opt">· 多选</span></label>
+          <label id="modal-label-issues">目前睡眠问题 <span class="opt">· 多选</span></label>
           <div class="check-group">
-            <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
-            <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕"><span id="issue-1">经常落枕</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛"><span id="issue-2">肩颈酸痛</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛"><span id="issue-3">腰酸背痛</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠"><span id="issue-4">难以入睡 / 浅眠</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累"><span id="issue-5">睡醒更累</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾"><span id="issue-6">富贵包 / 颈椎前倾</span></label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="其他"><span id="issue-7">其他</span></label>
           </div>
         </div>
 
-        <button type="submit" class="btn-pill form-submit">Submit →</button>
-        <p class="support-line">
+        <button type="submit" id="modal-submit" class="btn-pill form-submit">Submit →</button>
+        <p class="support-line" id="modal-support">
           * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
         </p>
       </form>
@@ -848,6 +855,30 @@ const translations = {
     locLabelAddr: 'Address',
     locLabelHours: 'Hours',
     ctaBtn: 'Book My Slot! →',
+    modalTitle: 'Fill in Your Details for Our <em>Doctor</em>',
+    modalSub: '<strong>⚠️ Note:</strong> We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure — if it\'s not suitable, that\'s totally fine. You\'ll still get a full professional consultation! 😊 <strong>Fully deducted!</strong>',
+    modalLabelProduct: 'Pillow or Mattress? *',
+    modalOptPillow: 'Pillow',
+    modalOptMattress: 'Mattress',
+    modalErrSelect: '⚠ Please select one',
+    modalLabelLocation: 'Consultation Location *',
+    modalLabelReferralPerson: 'Who referred you? (Chiropractor / Doctor / Physio / Pharmacist) *',
+    modalLabelReferralClinic: 'Their clinic *',
+    modalErrFill: '⚠ Please fill in this field',
+    modalLabelName: 'Name *',
+    modalLabelPhone: 'Phone Number *',
+    modalLabelAge: 'Age *',
+    modalLabelPax: 'No. of persons *',
+    modalLabelIssues: 'Current Sleep Issues <span class="opt">· Multiple select</span>',
+    issue1: 'Stiff Neck',
+    issue2: 'Shoulder & Neck Pain',
+    issue3: 'Lower Back Pain',
+    issue4: 'Insomnia / Light Sleep',
+    issue5: 'Wake Up Tired',
+    issue6: 'Hunchback / Forward Neck',
+    issue7: 'Others',
+    modalSubmit: 'Submit →',
+    modalSupport: '* Have other questions? <a href="#" onclick="goWhatsappSupport();return false;">Contact us here</a> *',
   },
   cn: {
     credBar: '帮助超过<strong>&nbsp;10,000+&nbsp;</strong>位顾客找到适合自己的床和枕头',
@@ -876,6 +907,30 @@ const translations = {
     locLabelAddr: '地址',
     locLabelHours: '营业时间',
     ctaBtn: '马上预约我的位子！ →',
+    modalTitle: '填写你资料，让 <em>医师</em> 提前了解你',
+    modalSub: '<strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 "<strong>全额扣除</strong>！',
+    modalLabelProduct: '要预约看枕头还是床垫？*',
+    modalOptPillow: '枕头 Pillow',
+    modalOptMattress: '床垫 Mattress',
+    modalErrSelect: '⚠ 请选择一项',
+    modalLabelLocation: '咨询地点 *',
+    modalLabelReferralPerson: '由哪位脊骨师/医生/物疗师/药剂师介绍？ *',
+    modalLabelReferralClinic: '他/她就业的诊所 *',
+    modalErrFill: '⚠ 请填写此栏',
+    modalLabelName: '姓名 *',
+    modalLabelPhone: '电话号码 *',
+    modalLabelAge: '年龄 *',
+    modalLabelPax: '几位要咨询 *',
+    modalLabelIssues: '目前睡眠问题 <span class="opt">· 多选</span>',
+    issue1: '经常落枕',
+    issue2: '肩颈酸痛',
+    issue3: '腰酸背痛',
+    issue4: '难以入睡 / 浅眠',
+    issue5: '睡醒更累',
+    issue6: '富贵包 / 颈椎前倾',
+    issue7: '其他',
+    modalSubmit: 'Submit →',
+    modalSupport: '* 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *',
   }
 };
 
@@ -917,6 +972,33 @@ function setLang(lang) {
   document.getElementById('kl-label-hours').innerHTML = t.locLabelHours;
   document.getElementById('pg-label-hours').innerHTML = t.locLabelHours;
   document.getElementById('bj-label-hours').innerHTML = t.locLabelHours;
+
+  // Modal form
+  document.getElementById('modal-title').innerHTML = t.modalTitle;
+  document.getElementById('modal-sub').innerHTML = t.modalSub;
+  document.getElementById('modal-label-product').innerHTML = t.modalLabelProduct;
+  document.getElementById('modal-opt-pillow').innerHTML = t.modalOptPillow;
+  document.getElementById('modal-opt-mattress').innerHTML = t.modalOptMattress;
+  document.getElementById('modal-err-product').innerHTML = t.modalErrSelect;
+  document.getElementById('modal-label-location').innerHTML = t.modalLabelLocation;
+  document.getElementById('modal-err-location').innerHTML = t.modalErrSelect;
+  document.getElementById('modal-label-referral-person').innerHTML = t.modalLabelReferralPerson;
+  document.getElementById('modal-label-referral-clinic').innerHTML = t.modalLabelReferralClinic;
+  document.getElementById('modal-err-fill').innerHTML = t.modalErrFill;
+  document.getElementById('modal-label-name').innerHTML = t.modalLabelName;
+  document.getElementById('modal-label-phone').innerHTML = t.modalLabelPhone;
+  document.getElementById('modal-label-age').innerHTML = t.modalLabelAge;
+  document.getElementById('modal-label-pax').innerHTML = t.modalLabelPax;
+  document.getElementById('modal-label-issues').innerHTML = t.modalLabelIssues;
+  document.getElementById('issue-1').innerHTML = t.issue1;
+  document.getElementById('issue-2').innerHTML = t.issue2;
+  document.getElementById('issue-3').innerHTML = t.issue3;
+  document.getElementById('issue-4').innerHTML = t.issue4;
+  document.getElementById('issue-5').innerHTML = t.issue5;
+  document.getElementById('issue-6').innerHTML = t.issue6;
+  document.getElementById('issue-7').innerHTML = t.issue7;
+  document.getElementById('modal-submit').innerHTML = t.modalSubmit;
+  document.getElementById('modal-support').innerHTML = t.modalSupport;
 
   // Re-bind chip events after innerHTML swap
   document.querySelectorAll('.mini-chip input').forEach(inp => {
@@ -1037,7 +1119,8 @@ function submitForm(e) {
     pax:      fd.get('pax')      || '',
     product:  fd.get('product')  || '',
     location: fd.get('location') || '',
-    referral: fd.get('referral') || '',
+    referral_person: fd.get('referral_person') || '',
+    referral_clinic: fd.get('referral_clinic') || '',
     issues:   (fd.getAll('issue') || []).join('、')
   };
   lastFormData = data;
@@ -1052,7 +1135,8 @@ function submitForm(e) {
       Pax:       data.pax,
       Product:   data.product,
       Location:  data.location,
-      Referral:  data.referral,
+      Referral_Person: data.referral_person,
+      Referral_Clinic: data.referral_clinic,
       Issues:    data.issues,
       Source:    'Referral Page'
     }]
@@ -1082,8 +1166,9 @@ function goWhatsapp(d) {
     text += '4. 几位要来：'   + info.pax      + '\n';
     text += '5. 看枕头/床垫：' + info.product  + '\n';
     text += '6. 咨询地点：'   + info.location + '\n';
-    text += '7. 由谁介绍：'   + info.referral + '\n';
-    text += '8. 目前问题：'   + (info.issues || '-');
+    text += '7. 由谁介绍：'   + info.referral_person + '\n';
+    text += '8. 介绍人诊所：'  + info.referral_clinic + '\n';
+    text += '9. 目前问题：'   + (info.issues || '-');
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text), '_blank');
 }
