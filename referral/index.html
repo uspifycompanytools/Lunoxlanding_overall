@@ -773,7 +773,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         <div class="form-row full">
           <label id="modal-label-referral-clinic">他/她就业的诊所 *</label>
           <input type="text" name="referral_clinic" required />
-          <span class="error-msg">⚠ 请填写此栏</span>
+          <span id="modal-err-fill-2" class="error-msg">⚠ 请填写此栏</span>
         </div>
 
         <!-- 4. Name + Phone + Age + Pax -->
@@ -781,22 +781,22 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
           <div class="form-row">
             <label id="modal-label-name">姓名 *</label>
             <input type="text" name="name" required />
-            <span class="error-msg">⚠ 请填写此栏</span>
+            <span id="modal-err-fill-3" class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
             <label id="modal-label-phone">电话号码 *</label>
             <input type="tel" name="phone" required />
-            <span class="error-msg">⚠ 请填写此栏</span>
+            <span id="modal-err-fill-4" class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
             <label id="modal-label-age">年龄 *</label>
             <input type="number" name="age" min="1" max="120" required />
-            <span class="error-msg">⚠ 请填写此栏</span>
+            <span id="modal-err-fill-5" class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
             <label id="modal-label-pax">几位要咨询 *</label>
             <input type="number" name="pax" min="1" required />
-            <span class="error-msg">⚠ 请填写此栏</span>
+            <span id="modal-err-fill-6" class="error-msg">⚠ 请填写此栏</span>
           </div>
         </div>
 
@@ -862,7 +862,7 @@ const translations = {
     modalOptMattress: 'Mattress',
     modalErrSelect: '⚠ Please select one',
     modalLabelLocation: 'Consultation Location *',
-    modalLabelReferralPerson: 'Who referred you? (Chiropractor / Doctor / Physio / Pharmacist) *',
+    modalLabelReferralPerson: 'Name of the chiropractor / doctor / physio / pharmacist who referred you? *',
     modalLabelReferralClinic: 'Their clinic *',
     modalErrFill: '⚠ Please fill in this field',
     modalLabelName: 'Name *',
@@ -985,6 +985,11 @@ function setLang(lang) {
   document.getElementById('modal-label-referral-person').innerHTML = t.modalLabelReferralPerson;
   document.getElementById('modal-label-referral-clinic').innerHTML = t.modalLabelReferralClinic;
   document.getElementById('modal-err-fill').innerHTML = t.modalErrFill;
+  document.getElementById('modal-err-fill-2').innerHTML = t.modalErrFill;
+  document.getElementById('modal-err-fill-3').innerHTML = t.modalErrFill;
+  document.getElementById('modal-err-fill-4').innerHTML = t.modalErrFill;
+  document.getElementById('modal-err-fill-5').innerHTML = t.modalErrFill;
+  document.getElementById('modal-err-fill-6').innerHTML = t.modalErrFill;
   document.getElementById('modal-label-name').innerHTML = t.modalLabelName;
   document.getElementById('modal-label-phone').innerHTML = t.modalLabelPhone;
   document.getElementById('modal-label-age').innerHTML = t.modalLabelAge;
