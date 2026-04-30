@@ -279,7 +279,7 @@ section{padding:90px 0;position:relative;overflow:hidden}
   font-weight:700;margin-bottom:22px;
 }
 .locations-title em{font-style:italic;color:var(--orchid)}
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:900px;margin:0 auto}
+.location-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:26px;max-width:1200px;margin:0 auto}
 .loc-card{
   background:#fff;border-radius:20px;overflow:hidden;
   border:1px solid var(--line);
@@ -657,8 +657,24 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
     <!-- Locations — full width below the 2-col -->
     <div class="locations">
-      <h3 id="loc-title" class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+      <h3 id="loc-title" class="locations-title">我们的 <em>3 个</em> Showroom 地点</h3>
       <div class="location-grid">
+        <div class="loc-card">
+          <div class="loc-img">
+            <img src="bukit-jalil.jpeg" alt="Lunox Zest Point HQ Bukit Jalil" />
+          </div>
+          <div class="loc-body">
+            <div class="loc-name">Zest Point HQ <span>· Bukit Jalil</span></div>
+            <div class="loc-row">
+              <div id="bj-label-addr" class="loc-label">地址</div>
+              <div class="loc-text">ZP-G-12, Zest Point, Lebuhraya Bukit Jalil, Bandar Kinrara 9, 47180 Puchong, Selangor</div>
+            </div>
+            <div class="loc-row">
+              <div id="bj-label-hours" class="loc-label">营业时间</div>
+              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
+            </div>
+          </div>
+        </div>
         <div class="loc-card">
           <div class="loc-img">
             <img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur" />
@@ -828,7 +844,7 @@ const translations = {
     step3Title: 'Data-Based Customization',
     step3Desc: 'Doctor matches the best pillow or mattress based on your spine and body data.',
     processNote: '⏱ The entire process takes only about 45 minutes to 1 hour!',
-    locTitle: 'Our <em>2</em> Showroom Locations',
+    locTitle: 'Our <em>3</em> Showroom Locations',
     locLabelAddr: 'Address',
     locLabelHours: 'Hours',
     ctaBtn: 'Book My Slot! →',
@@ -856,7 +872,7 @@ const translations = {
     step3Title: '根据数据，客制化你的枕头或床褥',
     step3Desc: '医师根据检查结果和身体数据，帮你搭配最适合你的产品。',
     processNote: '⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！',
-    locTitle: '我们的 <em>2 个</em> Showroom 地点',
+    locTitle: '我们的 <em>3 个</em> Showroom 地点',
     locLabelAddr: '地址',
     locLabelHours: '营业时间',
     ctaBtn: '马上预约我的位子！ →',
@@ -897,8 +913,10 @@ function setLang(lang) {
   document.getElementById('cta-btn').innerHTML = t.ctaBtn;
   document.getElementById('kl-label-addr').innerHTML = t.locLabelAddr;
   document.getElementById('pg-label-addr').innerHTML = t.locLabelAddr;
+  document.getElementById('bj-label-addr').innerHTML = t.locLabelAddr;
   document.getElementById('kl-label-hours').innerHTML = t.locLabelHours;
   document.getElementById('pg-label-hours').innerHTML = t.locLabelHours;
+  document.getElementById('bj-label-hours').innerHTML = t.locLabelHours;
 
   // Re-bind chip events after innerHTML swap
   document.querySelectorAll('.mini-chip input').forEach(inp => {
