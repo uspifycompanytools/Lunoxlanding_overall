@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lunox — 你的医生 / 专科为你安排的睡眠咨询</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --deep:#490052;
+  --deep-2:#6A1D78;
+  --lavender:#B19DE3;
+  --orchid:#AD57B9;
+  --soft:#F0E5FE;
+  --soft-2:#F7EFFF;
+  --white:#FFFFFF;
+  --ink:#1A0021;
+  --mute:#6B4E78;
+  --line:#E2D1EE;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans','Noto Sans SC',system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;border-radius:12px}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ===== BUTTONS ===== */
+.btn-pill{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--deep);color:#fff;
+  padding:16px 30px;border-radius:999px;
+  font-weight:600;font-size:16px;
+  border:none;cursor:pointer;
+  transition:all .25s ease;
+  box-shadow:0 10px 30px rgba(73,0,82,.25);
+}
+.btn-pill:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(73,0,82,.35);background:var(--deep-2)}
+
+.cta-center{text-align:center;margin:40px 0}
+
+/* ===== SECTIONS ===== */
+section{padding:90px 0;position:relative;overflow:hidden}
+.sec-soft{background:var(--soft)}
+.sec-white{background:var(--white)}
+
+.h-section{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-weight:700;
+  font-size:clamp(30px,3.6vw,48px);
+  line-height:1.2;
+  color:var(--deep);
+  text-align:center;
+  letter-spacing:-.3px;
+}
+.h-section em{font-style:italic;color:var(--orchid)}
+
+.spark{
+  position:absolute;color:var(--lavender);
+  font-size:32px;pointer-events:none;user-select:none;
+  opacity:.65;
+}
+
+/* ===== HERO ===== */
+.hero{
+  background:linear-gradient(180deg,var(--soft) 0%,var(--soft-2) 100%);
+  padding:60px 0 90px;
+}
+.hero-brand{
+  text-align:center;margin:0 auto 40px;
+}
+.hero-brand img{
+  height:73px;width:auto;display:inline-block;
+  border-radius:0;background:transparent;
+}
+.cred-bar{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:14px;color:var(--deep);
+  background:#fff;border:1px solid var(--line);
+  padding:10px 18px;border-radius:999px;
+  margin:0 0 28px;
+  font-weight:500;
+  box-shadow:0 4px 14px rgba(73,0,82,.06);
+}
+.cred-bar .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
+
+.hero-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+}
+.hero-left{display:flex;flex-direction:column;}
+.hero h1{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-size:clamp(32px,4vw,54px);
+  line-height:1.12;font-weight:700;color:var(--deep);
+  letter-spacing:-.8px;
+}
+.hero h1 em{font-style:italic;color:var(--orchid);font-weight:600}
+.hero-tag{
+  font-size:17px;color:var(--mute);margin-top:18px;line-height:1.65;
+}
+.hero-img-wrap{
+  margin-top:30px;
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.18);
+}
+.hero-img-wrap img{
+  width:100%;height:auto;
+  border-radius:20px;
+  display:block;
+}
+
+/* ===== MINI FORM CARD ===== */
+.mini-form-card{
+  background:#fff;
+  border-radius:24px;
+  padding:32px 28px;
+  box-shadow:0 20px 60px rgba(73,0,82,.14);
+  border:1px solid var(--line);
+}
+.mini-form-title{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-size:22px;color:var(--deep);font-weight:700;
+  margin-bottom:6px;line-height:1.3;
+}
+.mini-form-title em{font-style:italic;color:var(--orchid)}
+.mini-form-sub{
+  font-size:13px;color:var(--mute);margin-bottom:24px;line-height:1.55;
+}
+.mini-field{margin-bottom:18px}
+.mini-field-label{
+  font-size:13px;font-weight:600;color:var(--deep);
+  margin-bottom:8px;display:block;
+}
+.mini-radio-group{display:flex;flex-wrap:wrap;gap:8px}
+.mini-chip{
+  display:inline-flex;align-items:center;
+  padding:9px 16px;border:1.5px solid var(--line);
+  border-radius:999px;cursor:pointer;font-size:13px;
+  background:#fff;color:var(--ink);transition:all .2s;user-select:none;
+}
+.mini-chip input{display:none}
+.mini-chip.selected{background:var(--deep);color:#fff;border-color:var(--deep)}
+.mini-phone-input{
+  width:100%;padding:13px 15px;
+  border:1.5px solid var(--line);border-radius:12px;
+  font-size:14px;font-family:inherit;
+  background:#fff;transition:border .2s;
+}
+.mini-phone-input:focus{outline:none;border-color:var(--deep)}
+.mini-form-card .btn-pill{width:100%;justify-content:center;font-size:15px;margin-top:6px}
+.mini-deposit-note{
+  font-size:12px;color:var(--mute);
+  text-align:center;margin-top:14px;line-height:1.6;
+  background:var(--soft-2);padding:10px 14px;border-radius:10px;
+}
+.mini-error{
+  font-size:12px;color:#E11D48;margin-top:5px;display:none;font-weight:500;
+}
+.mini-error.show{display:block}
+
+/* ===== TESTIMONY (exact reference) ===== */
+.testi-hero{
+  margin:40px auto 40px;
+  max-width:1000px;
+}
+.testi-hero img{
+  width:100%;height:auto;
+  border-radius:0;
+  background:transparent;
+  display:block;
+}
+.proof-row{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:30px;align-items:center;
+  max-width:1000px;margin:0 auto;
+  padding:36px 40px;
+  border-top:1px solid var(--line);
+}
+.proof-item{
+  display:flex;align-items:center;gap:18px;
+  justify-content:center;
+}
+.proof-item.right{justify-content:center}
+.proof-item img{
+  height:80px;width:auto;max-width:140px;object-fit:contain;
+  flex-shrink:0;
+  background:transparent;border-radius:0;
+}
+.proof-item .txt{
+  font-size:15px;color:var(--ink);font-weight:500;line-height:1.5;
+}
+.proof-item .txt strong{color:var(--deep)}
+.logo-marquee{
+  overflow:hidden;width:100%;position:relative;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);
+  mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);
+}
+.logo-track{
+  display:flex;align-items:center;width:max-content;
+  animation:logoLoop 40s linear infinite;
+}
+.logo-track img{
+  height:60px;width:auto;object-fit:contain;flex-shrink:0;
+  opacity:.85;filter:grayscale(20%);margin-right:40px;
+  border-radius:0;background:transparent;
+}
+@keyframes logoLoop{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ===== PROCESS 2-COL ===== */
+.process-2col{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:60px;
+  align-items:start;
+}
+.process-left{
+  position:sticky;
+  top:30px;
+  align-self:start;
+}
+.process-left img{
+  width:100%;height:auto;
+  border-radius:20px;
+  display:block;
+  object-fit:cover;
+  box-shadow:0 20px 50px rgba(73,0,82,.12);
+}
+.process-right .h-section{text-align:left}
+.process-sub{
+  font-size:16px;color:var(--mute);
+  margin-top:14px;line-height:1.7;
+}
+.steps-simple{
+  display:flex;flex-direction:column;gap:16px;
+  margin-top:28px;
+}
+.step-s{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 22px;background:#fff;
+  border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 6px 20px rgba(73,0,82,.05);
+  transition:transform .25s;
+}
+.step-s:hover{transform:translateX(4px)}
+.step-s .snum{
+  width:40px;height:40px;border-radius:50%;
+  background:var(--deep);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:16px;
+  font-family:'Playfair Display',serif;
+  flex-shrink:0;margin-top:1px;
+}
+.step-s .scontent h4{color:var(--deep);font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.step-s .scontent p{color:var(--mute);font-size:14px;line-height:1.6}
+.process-note{
+  text-align:center;margin-top:24px;
+  font-size:15px;color:var(--deep);font-weight:500;
+  background:rgba(177,157,227,.25);
+  padding:16px 22px;border-radius:14px;display:inline-block;
+}
+.process-note-wrap{text-align:center}
+
+/* Locations */
+.locations{margin-top:40px}
+.locations-title{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  text-align:center;color:var(--deep);
+  font-size:clamp(20px,2.2vw,28px);
+  font-weight:700;margin-bottom:22px;
+}
+.locations-title em{font-style:italic;color:var(--orchid)}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.loc-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 12px 34px rgba(73,0,82,.08);
+  display:flex;flex-direction:column;transition:transform .25s;
+}
+.loc-card:hover{transform:translateY(-4px)}
+.loc-img{aspect-ratio:16/10;background:var(--soft);overflow:hidden}
+.loc-img img{width:100%;height:100%;object-fit:cover;border-radius:0;display:block}
+.loc-body{padding:18px 20px 22px;display:flex;flex-direction:column;gap:10px}
+.loc-name{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-size:18px;font-weight:700;color:var(--deep);line-height:1.2;
+}
+.loc-name span{font-style:italic;color:var(--orchid);font-weight:500;font-size:14px}
+.loc-row{display:flex;gap:10px;align-items:flex-start}
+.loc-label{
+  flex-shrink:0;min-width:58px;background:var(--soft);
+  color:var(--deep);font-size:11px;font-weight:700;
+  padding:4px 8px;border-radius:999px;
+  text-align:center;letter-spacing:.5px;margin-top:2px;
+}
+.loc-text{font-size:13px;line-height:1.65;color:var(--ink)}
+.loc-dim{color:var(--mute);font-size:12px}
+
+/* ===== FOOTER ===== */
+footer{
+  background:var(--deep);color:#fff;
+  padding:50px 0 30px;text-align:center;
+}
+.footer-logo img{
+  height:70px;width:auto;margin:0 auto 14px;
+  border-radius:0;background:transparent;display:block;
+}
+footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
+
+/* ===== MODAL FORM ===== */
+.modal-bg{
+  position:fixed;inset:0;background:rgba(26,0,33,.6);
+  backdrop-filter:blur(6px);
+  display:none;z-index:200;
+  align-items:flex-start;justify-content:center;
+  overflow-y:auto;padding:40px 20px;
+}
+.modal-bg.open{display:flex}
+.modal{
+  background:#fff;border-radius:24px;max-width:640px;width:100%;
+  padding:40px;box-shadow:0 40px 80px rgba(0,0,0,.3);
+  position:relative;
+}
+.modal .close{
+  position:absolute;top:18px;right:18px;
+  width:38px;height:38px;border-radius:50%;border:none;
+  background:var(--soft);color:var(--deep);
+  cursor:pointer;font-size:20px;font-weight:600;
+}
+.modal h3{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-size:26px;color:var(--deep);
+  margin-bottom:10px;line-height:1.25;
+}
+.modal h3 em{font-style:italic;color:var(--orchid)}
+.modal .sub{
+  font-size:14px;color:var(--mute);line-height:1.7;margin-bottom:26px;
+  background:var(--soft);padding:14px 16px;border-radius:12px;
+  border-left:3px solid var(--orchid);
+}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-row{display:flex;flex-direction:column;margin-bottom:14px}
+.form-row.full{grid-column:1/-1}
+.form-row label{font-size:13px;font-weight:600;color:var(--deep);margin-bottom:6px;}
+.form-row label .opt{color:var(--mute);font-weight:400;font-size:12px}
+.form-row input[type=text],
+.form-row input[type=tel],
+.form-row input[type=number]{
+  padding:12px 14px;border:1.5px solid var(--line);
+  border-radius:10px;font-size:14px;font-family:inherit;
+  background:#fff;transition:border .2s;
+}
+.form-row input:focus{outline:none;border-color:var(--deep)}
+.form-row.error label{color:#E11D48}
+.form-row.error input{border-color:#E11D48!important;background:#FEF2F2}
+.error-msg{
+  display:none;color:#E11D48;
+  font-size:13px;margin-top:6px;
+  align-items:center;gap:6px;font-weight:500;
+}
+.form-row.error .error-msg{display:flex}
+.radio-group,.check-group{display:flex;flex-wrap:wrap;gap:8px}
+.chip-opt{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:9px 14px;border:1.5px solid var(--line);
+  border-radius:999px;cursor:pointer;font-size:13px;
+  background:#fff;color:var(--ink);transition:all .2s;user-select:none;
+}
+.chip-opt input{display:none}
+.chip-opt.selected{background:var(--deep);color:#fff;border-color:var(--deep)}
+.form-submit{width:100%;margin-top:8px;justify-content:center;}
+.support-line{text-align:center;margin-top:16px;font-size:13px;color:var(--mute);}
+.support-line a{color:var(--deep);font-weight:600;text-decoration:underline}
+.success-view{display:none;text-align:center;padding:30px 10px}
+.success-view .tick{
+  width:72px;height:72px;border-radius:50%;
+  background:#E8F7ED;color:#2ecc71;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 20px;font-size:40px;
+}
+.success-view h3{margin-bottom:10px}
+.success-view p{color:var(--mute);margin-bottom:22px}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:860px){
+  section{padding:60px 0}
+  .wrap{padding:0 20px}
+
+  /* Hero */
+  .hero{padding:40px 0 60px}
+  .hero-brand{margin:0 auto 28px}
+  .hero-brand img{height:55px}
+  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .cred-bar{font-size:13px;padding:8px 14px;margin-bottom:20px}
+  .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
+  .hero-tag{font-size:16px;margin-top:16px}
+  .hero-img-wrap{margin-top:20px}
+
+  /* Testimony */
+  .testi-hero{margin:30px auto 24px}
+  .proof-row{grid-template-columns:1fr;gap:20px;padding:24px 0}
+  .proof-item{justify-content:center;text-align:center}
+  .proof-item img{height:60px;max-width:110px}
+  .logo-track{animation-duration:30s}
+  .logo-track img{height:44px}
+
+  /* Process */
+  .process-2col{grid-template-columns:1fr;gap:30px}
+  .process-left{position:relative;top:0}
+  .process-right .h-section{text-align:center}
+  .process-sub{text-align:center}
+  .location-grid{grid-template-columns:1fr;gap:16px}
+
+  /* Modal */
+  .modal{padding:28px 22px}
+  .modal h3{padding-right:48px;font-size:22px}
+  .form-grid{grid-template-columns:1fr}
+
+  /* Mini form */
+  .mini-form-card{padding:24px 20px}
+}
+@media(max-width:480px){
+  .hero h1{font-size:26px}
+  .hero-tag{font-size:15px}
+  .proof-item{flex-direction:column;align-items:center;gap:10px;text-align:center}
+  .proof-item img{height:56px}
+  .step-s{padding:16px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <span class="spark" style="top:80px;left:40px">✦</span>
+  <span class="spark" style="top:200px;right:80px">✦</span>
+  <div class="wrap">
+
+    <!-- Lunox Logo -->
+    <div class="hero-brand">
+      <img src="https://booking.lunox.com.my/lunox-logo/lunox-logo-purple.png" alt="Lunox" />
+    </div>
+
+    <div class="hero-grid">
+
+      <!-- LEFT: Text + Image -->
+      <div class="hero-left">
+        <div class="cred-bar">
+          <span class="dot"></span>
+          帮助超过 <strong>&nbsp;1,200+&nbsp;</strong> 位顾客找到适合自己的床和枕头
+        </div>
+        <h1>全马第一个，由专业 <em>Healthcare</em> 团队服务你的睡眠品牌</h1>
+        <p class="hero-tag">我们只做一件事：用我们的专业医学知识，帮你解决睡眠问题。</p>
+        <div class="hero-img-wrap">
+          <img src="hero-image.png" alt="Lunox Healthcare Team — Dr. Daniel & Giselle" />
+        </div>
+      </div>
+
+      <!-- RIGHT: Mini Form Card -->
+      <div>
+        <div class="mini-form-card">
+          <div class="mini-form-title">马上预约你的<em>位子</em></div>
+          <div class="mini-form-sub">填写以下资料，医师会提前为你准备。</div>
+
+          <!-- Field 1: Product -->
+          <div class="mini-field">
+            <span class="mini-field-label">你要看枕头还是床垫？*</span>
+            <div class="mini-radio-group" id="heroProductGroup">
+              <label class="mini-chip">
+                <input type="radio" name="heroProduct" value="枕头"> 枕头 Pillow
+              </label>
+              <label class="mini-chip">
+                <input type="radio" name="heroProduct" value="床垫"> 床垫 Mattress
+              </label>
+            </div>
+            <div class="mini-error" id="errProduct">⚠ 请选择一项</div>
+          </div>
+
+          <!-- Field 2: Location -->
+          <div class="mini-field">
+            <span class="mini-field-label">咨询地点 *</span>
+            <div class="mini-radio-group" id="heroLocationGroup">
+              <label class="mini-chip">
+                <input type="radio" name="heroLocation" value="KL 8Trium"> KL 8Trium
+              </label>
+              <label class="mini-chip">
+                <input type="radio" name="heroLocation" value="Penang Butterworth"> Penang Butterworth
+              </label>
+            </div>
+            <div class="mini-error" id="errLocation">⚠ 请选择一项</div>
+          </div>
+
+          <!-- Field 3: Phone -->
+          <div class="mini-field">
+            <span class="mini-field-label">电话号码 *</span>
+            <input type="tel" class="mini-phone-input" id="heroPhone" placeholder="01X-XXXXXXX" />
+            <div class="mini-error" id="errPhone">⚠ 请填写此栏</div>
+          </div>
+
+          <button class="btn-pill" onclick="openFormFromHero()">马上预约我的位子！ →</button>
+
+          <div class="mini-deposit-note">
+            ⚠️ 当天收取 RM25 咨询费（价值 RM180）<br>
+            购买产品时<strong>全额扣除</strong> · 无强制消费
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONY (exact copy from reference) ===== -->
+<section class="sec-white" id="testimony">
+  <div class="wrap">
+    <h2 class="h-section">你来之后，也会跟他们<em>有一样的感受</em></h2>
+
+    <div class="testi-hero">
+      <img src="review-v2.png" alt="顾客反馈 review" />
+    </div>
+
+    <div class="proof-row">
+      <div class="proof-item">
+        <img src="health-award.png" alt="Natural Health 健康时尚 Awards 2023" />
+        <div class="txt">
+          荣获 <strong>Natural Health &amp; 健康时尚</strong><br>
+          Readers' Choice Awards 2023<br>
+          <strong>最佳枕头 &amp; 抱枕奖</strong>
+        </div>
+      </div>
+      <div class="proof-item right">
+        <img src="google-review.png" alt="Google Reviews 5 stars" />
+        <div class="txt">
+          <strong>Google 5 星顾客好评</strong>
+        </div>
+      </div>
+    </div>
+
+    <!-- Partner Logos -->
+    <!--
+      IMAGE RENAME GUIDE — rename your uploaded files to match these filenames:
+      爱康.png             → partner-aikang.png
+      partner-chironature.png  → partner-chironature.png (no change)
+      Inifinite.png            → partner-infinite.png
+      Persistence.png          → partner-persistence.png
+      New_GTC_logo-invibie_1.png → partner-gtc.png
+      TCM.png                  → partner-tcm.png
+      partner-chirohealth.png  → partner-chirohealth.png (no change)
+      Infinity_Chiro_logo_1.png → partner-infinity.png
+      Posture_Align.png        → partner-posture.png
+      TOPCARE_1.png            → partner-topcare.png
+      REVE_Physio.png          → partner-reve.png
+      ASAP.png                 → partner-asap.png
+    -->
+    <div style="text-align:center;margin-top:70px">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
+        与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证
+      </h3>
+      <div class="logo-marquee">
+        <div class="logo-track">
+          <!-- First set -->
+          <img src="partner-aikang.png" alt="爱康" />
+          <img src="partner-chironature.png" alt="Chiro Nature" />
+          <img src="partner-infinite.png" alt="Infinite Chiropractic" />
+          <img src="partner-persistence.png" alt="Persistence Chiropractic" />
+          <img src="partner-gtc.png" alt="Good Therapy Centre" />
+          <img src="partner-tcm.png" alt="Yang TCM" />
+          <img src="partner-chirohealth.png" alt="Chiro Health" />
+          <img src="partner-infinity.png" alt="Infinity Chiro" />
+          <img src="partner-posture.png" alt="Posture Align" />
+          <img src="partner-topcare.png" alt="Topcare Chiropractic" />
+          <img src="partner-reve.png" alt="REVE Physio" />
+          <img src="partner-asap.png" alt="ASAP" />
+          <!-- Duplicate set for seamless loop -->
+          <img src="partner-aikang.png" alt="" aria-hidden="true"/>
+          <img src="partner-chironature.png" alt="" aria-hidden="true"/>
+          <img src="partner-infinite.png" alt="" aria-hidden="true"/>
+          <img src="partner-persistence.png" alt="" aria-hidden="true"/>
+          <img src="partner-gtc.png" alt="" aria-hidden="true"/>
+          <img src="partner-tcm.png" alt="" aria-hidden="true"/>
+          <img src="partner-chirohealth.png" alt="" aria-hidden="true"/>
+          <img src="partner-infinity.png" alt="" aria-hidden="true"/>
+          <img src="partner-posture.png" alt="" aria-hidden="true"/>
+          <img src="partner-topcare.png" alt="" aria-hidden="true"/>
+          <img src="partner-reve.png" alt="" aria-hidden="true"/>
+          <img src="partner-asap.png" alt="" aria-hidden="true"/>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== PROCESS (2-col layout) ===== -->
+<section class="sec-soft" id="process">
+  <div class="wrap">
+    <div class="process-2col">
+
+      <!-- LEFT: Image -->
+      <div class="process-left">
+        <img src="daniel-sensing-map.png" alt="Dr. Daniel 睡眠咨询" />
+      </div>
+
+      <!-- RIGHT: Content -->
+      <div class="process-right">
+        <h2 class="h-section">来了之后，<br>会发生<em>什么？</em></h2>
+        <p class="process-sub">整个过程大概只需要 45 分钟到 1 小时，全程由我们的医师陪同。</p>
+
+        <div class="steps-simple">
+          <div class="step-s">
+            <div class="snum">1</div>
+            <div class="scontent">
+              <h4>医师一对一睡眠咨询</h4>
+              <p>了解你的睡姿、身体状况和日常作息。</p>
+            </div>
+          </div>
+          <div class="step-s">
+            <div class="snum">2</div>
+            <div class="scontent">
+              <h4>脊椎检查 + 测量</h4>
+              <p>医师亲手检查，精准至 CM（有 X-ray 可以带来让医师看）。</p>
+            </div>
+          </div>
+          <div class="step-s">
+            <div class="snum">3</div>
+            <div class="scontent">
+              <h4>根据数据，客制化你的枕头或床褥</h4>
+              <p>医师根据检查结果和身体数据，帮你搭配最适合你的产品。</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-note-wrap" style="margin-top:24px">
+          <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
+        </div>
+
+        <!-- Showroom Locations -->
+        <div class="locations">
+          <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+          <div class="location-grid">
+            <div class="loc-card">
+              <div class="loc-img">
+                <img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur" />
+              </div>
+              <div class="loc-body">
+                <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
+                <div class="loc-row">
+                  <div class="loc-label">地址</div>
+                  <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur</div>
+                </div>
+                <div class="loc-row">
+                  <div class="loc-label">营业时间</div>
+                  <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="loc-card">
+              <div class="loc-img">
+                <img src="butterworth.webp" alt="Lunox Butterworth Penang" />
+              </div>
+              <div class="loc-body">
+                <div class="loc-name">Butterworth <span>· Penang</span></div>
+                <div class="loc-row">
+                  <div class="loc-label">地址</div>
+                  <div class="loc-text">Pusat Perniagaan Raja Uda, 16, Jalan Raja Uda, Kampung Baharu, 12300 Butterworth, Pulau Pinang</div>
+                </div>
+                <div class="loc-row">
+                  <div class="loc-label">营业时间</div>
+                  <div class="loc-text">10am – 6pm <span class="loc-dim">(Tues – Sun)</span><br>Closed <span class="loc-dim">(Mon)</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px">
+          <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="footer-logo">
+      <img src="https://booking.lunox.com.my/lunox-logo/lunox-logo-white.png" alt="Lunox Mattress" />
+    </div>
+    <p>https://lunox.my</p>
+    <p>© 2026 Nature Home Living Sdn Bhd 201801044314 (1306346-D)</p>
+  </div>
+</footer>
+
+<!-- ===== MODAL FORM ===== -->
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <button class="close" onclick="closeForm()">✕</button>
+
+    <!-- FORM VIEW -->
+    <div id="formView">
+      <h3>填写你资料，让 <em>医师</em> 提前了解你</h3>
+      <div class="sub">
+        <strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 "<strong>全额扣除</strong>！
+      </div>
+
+      <form id="bookingForm" onsubmit="submitForm(event)">
+
+        <!-- 1. Product -->
+        <div class="form-row full">
+          <label>要预约看枕头还是床垫？*</label>
+          <div class="radio-group">
+            <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
+            <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
+            <span class="error-msg">⚠ 请选择一项</span>
+          </div>
+        </div>
+
+        <!-- 2. Location (no Online) -->
+        <div class="form-row full">
+          <label>咨询地点 *</label>
+          <div class="radio-group">
+            <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
+            <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
+            <span class="error-msg">⚠ 请选择一项</span>
+          </div>
+        </div>
+
+        <!-- 3. Referral (NEW) -->
+        <div class="form-row full">
+          <label>由哪位医生 / 诊所介绍？ *</label>
+          <input type="text" name="referral" placeholder="例：Dr. Ahmad / Infinity Chiro" required />
+          <span class="error-msg">⚠ 请填写此栏</span>
+        </div>
+
+        <!-- 4. Name + Phone + Age + Pax -->
+        <div class="form-grid">
+          <div class="form-row">
+            <label>姓名 *</label>
+            <input type="text" name="name" required />
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>电话号码 *</label>
+            <input type="tel" name="phone" required />
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>年龄 *</label>
+            <input type="number" name="age" min="1" max="120" required />
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>几位要来 *</label>
+            <input type="number" name="pax" min="1" required />
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+        </div>
+
+        <!-- 5. Sleep problems -->
+        <div class="form-row full">
+          <label>目前睡眠问题 <span class="opt">· 多选</span></label>
+          <div class="check-group">
+            <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-pill form-submit">Submit →</button>
+        <p class="support-line">
+          * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
+        </p>
+      </form>
+    </div>
+
+    <!-- SUCCESS VIEW -->
+    <div class="success-view" id="successView">
+      <div class="tick">✓</div>
+      <h3>资料已提交，<em>slot 已暂时保留！</em></h3>
+      <p>现在进入下一步：付 RM25 to confirm 你的 slot<br>（当天购买产品时会全额扣除）</p>
+      <button class="btn-pill" onclick="goWhatsapp()">点击 WhatsApp 客服 确认付款 →</button>
+      <p style="margin-top:16px;font-size:13px">或直接等医师稍后联系你。</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ===== HERO MINI FORM — CHIP SELECTION =====
+document.querySelectorAll('.mini-chip input').forEach(inp => {
+  inp.addEventListener('change', (e) => {
+    const group = e.target.closest('.mini-radio-group');
+    group.querySelectorAll('.mini-chip').forEach(c => c.classList.remove('selected'));
+    e.target.closest('.mini-chip').classList.add('selected');
+    // Clear error on selection
+    const errId = e.target.name === 'heroProduct' ? 'errProduct' : 'errLocation';
+    document.getElementById(errId).classList.remove('show');
+  });
+});
+
+// Clear phone error on input
+document.getElementById('heroPhone').addEventListener('input', () => {
+  document.getElementById('errPhone').classList.remove('show');
+});
+
+// ===== OPEN FORM FROM HERO — validate + pre-populate =====
+function openFormFromHero() {
+  const product  = document.querySelector('input[name="heroProduct"]:checked');
+  const location = document.querySelector('input[name="heroLocation"]:checked');
+  const phone    = document.getElementById('heroPhone').value.trim();
+
+  let valid = true;
+  if (!product)  { document.getElementById('errProduct').classList.add('show');  valid = false; }
+  if (!location) { document.getElementById('errLocation').classList.add('show'); valid = false; }
+  if (!phone)    { document.getElementById('errPhone').classList.add('show');    valid = false; }
+  if (!valid) return;
+
+  // Pre-populate product in modal
+  document.querySelectorAll('input[name="product"]').forEach(r => {
+    const match = r.value === product.value;
+    r.checked = match;
+    r.closest('.chip-opt').classList.toggle('selected', match);
+  });
+
+  // Pre-populate location in modal
+  document.querySelectorAll('input[name="location"]').forEach(r => {
+    const match = r.value === location.value;
+    r.checked = match;
+    r.closest('.chip-opt').classList.toggle('selected', match);
+  });
+
+  // Pre-populate phone in modal
+  document.querySelector('input[name="phone"]').value = phone;
+
+  openForm();
+}
+
+// ===== MODAL OPEN / CLOSE =====
+function openForm() {
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeForm() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  document.getElementById('formView').style.display  = 'block';
+  document.getElementById('successView').style.display = 'none';
+}
+document.getElementById('modal').addEventListener('click', (e) => {
+  if (e.target.id === 'modal') closeForm();
+});
+
+// ===== MODAL CHIP SELECTION =====
+document.querySelectorAll('.chip-opt input').forEach(inp => {
+  inp.addEventListener('change', (e) => {
+    const parent = e.target.closest('.chip-opt');
+    if (e.target.type === 'radio') {
+      document.querySelectorAll(`input[name="${e.target.name}"]`).forEach(s => {
+        s.closest('.chip-opt').classList.remove('selected');
+      });
+      parent.classList.add('selected');
+    } else {
+      parent.classList.toggle('selected', e.target.checked);
+    }
+  });
+});
+
+// ===== INLINE VALIDATION ERRORS =====
+document.querySelectorAll('#bookingForm input').forEach(field => {
+  field.addEventListener('invalid', function(e) {
+    e.preventDefault();
+    const row = field.closest('.form-row');
+    if (row) row.classList.add('error');
+  });
+  const clearErr = () => {
+    const row = field.closest('.form-row');
+    if (row) row.classList.remove('error');
+  };
+  field.addEventListener('input', clearErr);
+  field.addEventListener('change', clearErr);
+});
+
+// ===== FORM SUBMIT =====
+let lastFormData = null;
+
+function submitForm(e) {
+  e.preventDefault();
+  const fd = new FormData(document.getElementById('bookingForm'));
+  const data = {
+    name:     fd.get('name')     || '',
+    phone:    fd.get('phone')    || '',
+    age:      fd.get('age')      || '',
+    pax:      fd.get('pax')      || '',
+    product:  fd.get('product')  || '',
+    location: fd.get('location') || '',
+    referral: fd.get('referral') || '',
+    issues:   (fd.getAll('issue') || []).join('、')
+  };
+  lastFormData = data;
+
+  // Submit to SheetDB
+  const payload = {
+    data: [{
+      Timestamp: new Date().toLocaleString('en-MY', { timeZone: 'Asia/Kuala_Lumpur' }),
+      Name:      data.name,
+      Phone:     data.phone,
+      Age:       data.age,
+      Pax:       data.pax,
+      Product:   data.product,
+      Location:  data.location,
+      Referral:  data.referral,
+      Issues:    data.issues,
+      Source:    'Referral Page'
+    }]
+  };
+
+  fetch('https://sheetdb.io/api/v1/t0lypbl3dsnkz?sheet=Refferal', {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(payload)
+  }).catch(() => {});
+
+  // Open WhatsApp
+  goWhatsapp(data);
+
+  // Show success view
+  document.getElementById('formView').style.display  = 'none';
+  document.getElementById('successView').style.display = 'block';
+}
+
+// ===== WHATSAPP =====
+function goWhatsapp(d) {
+  const info = d || lastFormData;
+  let text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
+  if (info) {
+    text += '1. 姓名：'       + info.name     + '\n';
+    text += '2. 电话号码：'   + info.phone    + '\n';
+    text += '3. 年龄：'       + info.age      + '\n';
+    text += '4. 几位要来：'   + info.pax      + '\n';
+    text += '5. 看枕头/床垫：' + info.product  + '\n';
+    text += '6. 咨询地点：'   + info.location + '\n';
+    text += '7. 由谁介绍：'   + info.referral + '\n';
+    text += '8. 目前问题：'   + (info.issues || '-');
+  }
+  window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text), '_blank');
+}
+
+function goWhatsappSupport() {
+  const msg = encodeURIComponent('我有其他问题，请帮我对接客服');
+  window.open('https://wa.me/60139668518?text=' + msg, '_blank');
+}
+</script>
+
+</body>
+</html>
