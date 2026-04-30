@@ -879,6 +879,8 @@ const translations = {
     issue7: 'Others',
     modalSubmit: 'Submit →',
     modalSupport: '* Have other questions? <a href="#" onclick="goWhatsappSupport();return false;">Contact us here</a> *',
+    miniErrSelect: '⚠ Please select one',
+    miniErrFill: '⚠ Please fill in this field',
   },
   cn: {
     credBar: '帮助超过<strong>&nbsp;10,000+&nbsp;</strong>位顾客找到适合自己的床和枕头',
@@ -931,6 +933,8 @@ const translations = {
     issue7: '其他',
     modalSubmit: 'Submit →',
     modalSupport: '* 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *',
+    miniErrSelect: '⚠ 请选择一项',
+    miniErrFill: '⚠ 请填写此栏',
   }
 };
 
@@ -1004,6 +1008,11 @@ function setLang(lang) {
   document.getElementById('issue-7').innerHTML = t.issue7;
   document.getElementById('modal-submit').innerHTML = t.modalSubmit;
   document.getElementById('modal-support').innerHTML = t.modalSupport;
+
+  // Mini form errors
+  document.getElementById('errProduct').innerHTML = t.miniErrSelect;
+  document.getElementById('errLocation').innerHTML = t.miniErrSelect;
+  document.getElementById('errPhone').innerHTML = t.miniErrFill;
 
   // Re-bind chip events after innerHTML swap
   document.querySelectorAll('.mini-chip input').forEach(inp => {
