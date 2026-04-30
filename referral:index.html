@@ -94,9 +94,9 @@ section{padding:90px 0;position:relative;overflow:hidden}
 .cred-bar .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
 
 .hero-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;
+  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;
 }
-.hero-left{display:flex;flex-direction:column;}
+.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;}
 .hero h1{
   font-family:'Playfair Display','Noto Sans SC',serif;
   font-size:clamp(32px,4vw,54px);
@@ -105,13 +105,13 @@ section{padding:90px 0;position:relative;overflow:hidden}
 }
 .hero h1 em{font-style:italic;color:var(--orchid);font-weight:600}
 .hero-tag{
-  font-size:17px;color:var(--mute);margin-top:18px;line-height:1.65;
+  font-size:17px;color:var(--mute);margin-top:18px;line-height:1.65;text-align:center;
 }
 .hero-img-wrap{
   margin-top:30px;
-  border-radius:20px;
-  overflow:hidden;
-  box-shadow:0 20px 50px rgba(0,0,0,.18);
+  border-radius:0;
+  overflow:visible;
+  box-shadow:none;
 }
 .hero-img-wrap img{
   width:100%;height:auto;
@@ -279,7 +279,7 @@ section{padding:90px 0;position:relative;overflow:hidden}
   font-weight:700;margin-bottom:22px;
 }
 .locations-title em{font-style:italic;color:var(--orchid)}
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;max-width:900px;margin:0 auto}
 .loc-card{
   background:#fff;border-radius:20px;overflow:hidden;
   border:1px solid var(--line);
@@ -605,14 +605,19 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   <div class="wrap">
     <div class="process-2col">
 
-      <!-- LEFT: Image -->
+<div class="process-2col">
+
+      <!-- LEFT: Content -->
+      <div class="process-right">
+        </div>
+
+      <!-- RIGHT: Image -->
       <div class="process-left">
         <img src="daniel-sensing-map.png" alt="Dr. Daniel 睡眠咨询" />
       </div>
 
-      <!-- RIGHT: Content -->
-      <div class="process-right">
-        <h2 class="h-section">来了之后，<br>会发生<em>什么？</em></h2>
+    </div>
+        <h2 class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
         <p class="process-sub">整个过程大概只需要 45 分钟到 1 小时，全程由我们的医师陪同。</p>
 
         <div class="steps-simple">
@@ -644,7 +649,16 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         </div>
 
         <!-- Showroom Locations -->
-        <div class="locations">
+        </div><!-- close process-right -->
+
+      <!-- RIGHT: Image -->
+      <div class="process-left">
+        <img src="daniel-sensing-map.png" alt="Dr. Daniel 睡眠咨询" />
+      </div>
+
+    </div><!-- close process-2col -->
+
+    <div class="locations">
           <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
           <div class="location-grid">
             <div class="loc-card">
