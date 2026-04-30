@@ -667,11 +667,11 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
           <div class="loc-body">
             <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
             <div class="loc-row">
-              <div class="loc-label">地址</div>
+              <div id="kl-label-addr" class="loc-label">地址</div>
               <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur</div>
             </div>
             <div class="loc-row">
-              <div class="loc-label">营业时间</div>
+              <div id="kl-label-hours" class="loc-label">营业时间</div>
               <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
             </div>
           </div>
@@ -683,11 +683,11 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
           <div class="loc-body">
             <div class="loc-name">Butterworth <span>· Penang</span></div>
             <div class="loc-row">
-              <div class="loc-label">地址</div>
+              <div id="pg-label-addr" class="loc-label">地址</div>
               <div class="loc-text">Pusat Perniagaan Raja Uda, 16, Jalan Raja Uda, Kampung Baharu, 12300 Butterworth, Pulau Pinang</div>
             </div>
             <div class="loc-row">
-              <div class="loc-label">营业时间</div>
+              <div id="pg-label-hours" class="loc-label">营业时间</div>
               <div class="loc-text">10am – 6pm <span class="loc-dim">(Tues – Sun)</span><br>Closed <span class="loc-dim">(Mon)</span></div>
             </div>
           </div>
@@ -815,9 +815,9 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 // ===== LANGUAGE TOGGLE =====
 const translations = {
   en: {
-    credBar: 'Helped over <strong>&nbsp;1,200+&nbsp;</strong> customers find the right mattress & pillow',
+    credBar: 'Helped over<strong>&nbsp;1,200+&nbsp;</strong>customers find the right mattress & pillow',
     h1: 'Malaysia\'s First Sleep Brand Served by a Professional <em style="font-style:italic;color:var(--orchid);font-weight:600">Healthcare</em> Team',
-    heroSub: 'We do one thing: use our medical expertise to solve your sleep problems.',
+    heroSub: 'We focus on one thing: use our medical expertise to solve your sleep problems.',
     miniTitle: 'Book Your <em>Slot</em> Now',
     miniLabel1: 'Pillow or Mattress? *',
     miniOpt1a: '<input type="radio" name="heroProduct" value="枕头"> Pillow',
@@ -825,11 +825,11 @@ const translations = {
     miniLabel2: 'Consultation Location *',
     miniLabel3: 'Phone Number *',
     miniBtn: 'Book My Slot! →',
-    miniNote: '⚠️ RM25 consultation fee (worth RM180) on the day<br>Fully deducted from purchase · No obligation to buy',
-    testiTitle: 'You\'ll Feel the Same as Them After You Visit',
+    miniNote: ⚠️ Note: We’ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase that day. No pressure, if it’s not suitable, that’s totally fine. You’ll still get a full professional consultation with our doctor! 😊',
+    testiTitle: 'You\'ll Feel the Same After You Visit',
     proofGoogle: 'Google 5-Star Reviews',
     partnerTitle: 'Certified by <em style="color:var(--orchid);font-style:italic">20+ Chiro Clinics</em> Nationwide',
-    processTitle: 'From Sleep Consultation to Product Selection —<br>All Done by <em> Our Doctors</em>',
+    processTitle: 'From Sleep Consultation to Product Selection, <br>All Done by <em> Our Doctors</em>',
     step1Title: 'One-on-One Sleep Consultation',
     step1Desc: 'Understanding your sleep posture, body condition and daily routine.',
     step2Title: 'Spine Check + Measurement',
@@ -838,6 +838,8 @@ const translations = {
     step3Desc: 'Doctor matches the best pillow or mattress based on your spine and body data.',
     processNote: '⏱ The entire process takes only about 45 minutes to 1 hour!',
     locTitle: 'Our <em>2</em> Showroom Locations',
+    locLabelAddr: 'Address',
+    locLabelHours: 'Hours',
     ctaBtn: 'Book My Slot! →',
   },
   cn: {
@@ -851,7 +853,7 @@ const translations = {
     miniLabel2: '咨询地点 *',
     miniLabel3: '电话号码 *',
     miniBtn: '马上预约我的位子！ →',
-    miniNote: '⚠️注：我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 "<strong>全额扣除</strong>！',
+    miniNote: '⚠️注：我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！,
     testiTitle: '你来之后，也会跟他们<em>有一样的感受</em>',
     proofGoogle: 'Google 5 星顾客好评',
     partnerTitle: '与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证',
@@ -864,6 +866,8 @@ const translations = {
     step3Desc: '医师根据检查结果和身体数据，帮你搭配最适合你的产品。',
     processNote: '⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！',
     locTitle: '我们的 <em>2 个</em> Showroom 地点',
+    locLabelAddr: '地址',
+    locLabelHours: '营业时间',
     ctaBtn: '马上预约我的位子！ →',
   }
 };
@@ -900,6 +904,10 @@ function setLang(lang) {
   document.getElementById('process-note').innerHTML = t.processNote;
   document.getElementById('loc-title').innerHTML = t.locTitle;
   document.getElementById('cta-btn').innerHTML = t.ctaBtn;
+  document.getElementById('kl-label-addr').innerHTML = t.locLabelAddr;
+  document.getElementById('pg-label-addr').innerHTML = t.locLabelAddr;
+  document.getElementById('kl-label-hours').innerHTML = t.locLabelHours;
+  document.getElementById('pg-label-hours').innerHTML = t.locLabelHours;
 
   // Re-bind chip events after innerHTML swap
   document.querySelectorAll('.mini-chip input').forEach(inp => {
