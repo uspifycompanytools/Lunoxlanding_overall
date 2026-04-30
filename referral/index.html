@@ -798,14 +798,6 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       </form>
     </div>
 
-    <!-- SUCCESS VIEW -->
-    <div class="success-view" id="successView">
-      <div class="tick">✓</div>
-      <h3>资料已提交，<em>slot 已暂时保留！</em></h3>
-      <p>现在进入下一步：付 RM25 to confirm 你的 slot<br>（当天购买产品时会全额扣除）</p>
-      <button class="btn-pill" onclick="goWhatsapp()">点击 WhatsApp 客服 确认付款 →</button>
-      <p style="margin-top:16px;font-size:13px">或直接等医师稍后联系你。</p>
-    </div>
 
   </div>
 </div>
@@ -1057,9 +1049,8 @@ function submitForm(e) {
   // Open WhatsApp
   goWhatsapp(data);
 
-  // Show success view
-  document.getElementById('formView').style.display  = 'none';
-  document.getElementById('successView').style.display = 'block';
+  // Close modal after submit
+  closeForm();
 }
 
 // ===== WHATSAPP =====
