@@ -440,6 +440,13 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 </head>
 <body>
 
+<!-- ===== LANGUAGE TOGGLE ===== -->
+<div id="lang-bar" style="position:fixed;top:16px;right:24px;z-index:999;display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;box-shadow:0 4px 14px rgba(73,0,82,.1);font-size:13px;font-weight:600;">
+  <span id="btn-en" onclick="setLang('en')" style="cursor:pointer;color:var(--mute)">EN</span>
+  <span style="color:var(--line)">|</span>
+  <span id="btn-cn" onclick="setLang('cn')" style="cursor:pointer;color:var(--deep)">CN</span>
+</div>
+
 <!-- ===== HERO ===== -->
 <section class="hero">
   <span class="spark" style="top:80px;left:40px">✦</span>
@@ -473,16 +480,16 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       <!-- RIGHT: Mini Form Card -->
       <div>
         <div class="mini-form-card">
-          <div class="mini-form-title">填写你资料，让<em> 医师 </em>提前了解你</div>
+          <div id="mini-title" class="mini-form-title">填写你资料，让<em> 医师 </em>提前了解你</div>
 
           <!-- Field 1: Product -->
           <div class="mini-field">
-            <span class="mini-field-label">你要看枕头还是床垫？*</span>
+            <span id="mini-label-1" class="mini-field-label">你要看枕头还是床垫？*</span>
             <div class="mini-radio-group" id="heroProductGroup">
-              <label class="mini-chip">
+              <label id="mini-opt-1a" class="mini-chip">
                 <input type="radio" name="heroProduct" value="枕头"> 枕头 Pillow
               </label>
-              <label class="mini-chip">
+              <label id="mini-opt-1b" class="mini-chip">
                 <input type="radio" name="heroProduct" value="床垫"> 床垫 Mattress
               </label>
             </div>
@@ -491,7 +498,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
           <!-- Field 2: Location -->
           <div class="mini-field">
-            <span class="mini-field-label">咨询地点 *</span>
+            <span id="mini-label-2" class="mini-field-label">咨询地点 *</span>
             <div class="mini-radio-group" id="heroLocationGroup">
               <label class="mini-chip">
                 <input type="radio" name="heroLocation" value="KL 8Trium"> KL 8Trium
@@ -505,14 +512,14 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
           <!-- Field 3: Phone -->
           <div class="mini-field">
-            <span class="mini-field-label">电话号码 *</span>
+            <span id="mini-label-3" class="mini-field-label">电话号码 *</span>
             <input type="tel" class="mini-phone-input" id="heroPhone" placeholder="01X-XXXXXXX" />
             <div class="mini-error" id="errPhone">⚠ 请填写此栏</div>
           </div>
 
-          <button class="btn-pill" onclick="openFormFromHero()">马上预约我的位子！ →</button>
+          <button id="mini-btn" class="btn-pill" onclick="openFormFromHero()">马上预约我的位子！ →</button>
 
-          <div class="mini-deposit-note">
+          <div id="mini-note" class="mini-deposit-note">
             <strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 ”<strong>全额扣除</strong>！
       </div>
           </div>
@@ -526,7 +533,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 <!-- ===== TESTIMONY (exact copy from reference) ===== -->
 <section class="sec-white" id="testimony">
   <div class="wrap">
-    <h2 class="h-section">你来之后，也会跟他们<em>有一样的感受</em></h2>
+    <h2 id="testi-title" class="h-section">你来之后，也会跟他们<em>有一样的感受</em></h2>
 
     <div class="testi-hero">
       <img src="review-v2.png" alt="顾客反馈 review" />
@@ -544,7 +551,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       <div class="proof-item right">
         <img src="google-review.png" alt="Google Reviews 5 stars" />
         <div class="txt">
-          <strong>Google 5 星顾客好评</strong>
+          <strong id="proof-google">Google 5 星顾客好评</strong>
         </div>
       </div>
     </div>
@@ -566,7 +573,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       ASAP.png                 → partner-asap.png
     -->
     <div style="text-align:center;margin-top:70px">
-      <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
+      <h3 id="partner-title" style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
         与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证
       </h3>
       <div class="logo-marquee">
@@ -611,34 +618,34 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
       <!-- LEFT: Content -->
       <div class="process-right">
-        <h2 class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
+        <h2 id="process-title" class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
 
         <div class="steps-simple">
           <div class="step-s">
             <div class="snum">1</div>
             <div class="scontent">
-              <h4>医师一对一睡眠咨询</h4>
-              <p>了解你的睡姿、身体状况和日常作息。</p>
+              <h4 id="step1-title">医师一对一睡眠咨询</h4>
+              <p id="step1-desc">了解你的睡姿、身体状况和日常作息。</p>
             </div>
           </div>
           <div class="step-s">
             <div class="snum">2</div>
             <div class="scontent">
-              <h4>脊椎检查 + 测量</h4>
-              <p>医师亲手检查，精准至 CM（有 X-ray 可以带来让医师看）。</p>
+              <h4 id="step2-title">脊椎检查 + 测量</h4>
+              <p id="step2-desc">医师亲手检查，精准至 CM（有 X-ray 可以带来让医师看）。</p>
             </div>
           </div>
           <div class="step-s">
             <div class="snum">3</div>
             <div class="scontent">
-              <h4>根据数据，客制化你的枕头或床褥</h4>
-              <p>医师根据检查结果和身体数据，帮你搭配最适合你的产品。</p>
+              <h4 id="step3-title">根据数据，客制化你的枕头或床褥</h4>
+              <p id="step3-desc">医师根据检查结果和身体数据，帮你搭配最适合你的产品。</p>
             </div>
           </div>
         </div>
 
         <div class="process-note-wrap" style="margin-top:24px">
-          <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
+          <p id="process-note" class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
         </div>
       </div>
 
@@ -651,7 +658,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
     <!-- Locations — full width below the 2-col -->
     <div class="locations">
-      <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+      <h3 id="loc-title" class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
       <div class="location-grid">
         <div class="loc-card">
           <div class="loc-img">
@@ -689,7 +696,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     </div>
 
     <div style="margin-top:36px;text-align:center">
-      <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
+      <button id="cta-btn" class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
     </div>
 
   </div>
@@ -805,6 +812,107 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 </div>
 
 <script>
+// ===== LANGUAGE TOGGLE =====
+const translations = {
+  en: {
+    credBar: 'Helped over <strong>&nbsp;1,200+&nbsp;</strong> customers find the right mattress & pillow',
+    h1: 'Malaysia\'s First Sleep Brand Served by a Professional <em style="font-style:italic;color:var(--orchid);font-weight:600">Healthcare</em> Team',
+    heroSub: 'We do one thing: use our medical expertise to solve your sleep problems.',
+    miniTitle: 'Book Your <em>Slot</em> Now',
+    miniLabel1: 'Pillow or Mattress? *',
+    miniOpt1a: '<input type="radio" name="heroProduct" value="枕头"> Pillow',
+    miniOpt1b: '<input type="radio" name="heroProduct" value="床垫"> Mattress',
+    miniLabel2: 'Consultation Location *',
+    miniLabel3: 'Phone Number *',
+    miniBtn: 'Book My Slot! →',
+    miniNote: '⚠️ RM25 consultation fee (worth RM180) on the day<br>Fully deducted from purchase · No obligation to buy',
+    testiTitle: 'You\'ll Feel the Same as Them After You Visit',
+    proofGoogle: 'Google 5-Star Reviews',
+    partnerTitle: 'Certified by <em style="color:var(--orchid);font-style:italic">20+ Chiro Clinics</em> Nationwide',
+    processTitle: 'From Sleep Consultation to Product Selection —<br>All Done by <em> Our Doctors</em>',
+    step1Title: 'One-on-One Sleep Consultation',
+    step1Desc: 'Understanding your sleep posture, body condition and daily routine.',
+    step2Title: 'Spine Check + Measurement',
+    step2Desc: 'Doctor personally examines, precise to CM (bring X-ray if you have one).',
+    step3Title: 'Data-Based Customization',
+    step3Desc: 'Doctor matches the best pillow or mattress based on your spine and body data.',
+    processNote: '⏱ The entire process takes only about 45 minutes to 1 hour!',
+    locTitle: 'Our <em>2</em> Showroom Locations',
+    ctaBtn: 'Book My Slot! →',
+  },
+  cn: {
+    credBar: '帮助超过 <strong>&nbsp;1,200+&nbsp;</strong> 位顾客找到适合自己的床和枕头',
+    h1: '全马第一个，由专业 <em style="font-style:italic;color:var(--orchid);font-weight:600">Healthcare</em> 团队服务你的睡眠品牌',
+    heroSub: '我们只做一件事：用我们的专业医学知识，帮你解决睡眠问题。',
+    miniTitle: '填写你资料，让<em> 医师 </em>提前了解你',
+    miniLabel1: '你要看枕头还是床垫？*',
+    miniOpt1a: '<input type="radio" name="heroProduct" value="枕头"> 枕头 Pillow',
+    miniOpt1b: '<input type="radio" name="heroProduct" value="床垫"> 床垫 Mattress',
+    miniLabel2: '咨询地点 *',
+    miniLabel3: '电话号码 *',
+    miniBtn: '马上预约我的位子！ →',
+    miniNote: '⚠️ 当天收取 RM25 咨询费（价值 RM180）<br>购买产品时<strong>全额扣除</strong> · 无强制消费',
+    testiTitle: '你来之后，也会跟他们<em>有一样的感受</em>',
+    proofGoogle: 'Google 5 星顾客好评',
+    partnerTitle: '与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证',
+    processTitle: '从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成',
+    step1Title: '医师一对一睡眠咨询',
+    step1Desc: '了解你的睡姿、身体状况和日常作息。',
+    step2Title: '脊椎检查 + 测量',
+    step2Desc: '医师亲手检查，精准至 CM（有 X-ray 可以带来让医师看）。',
+    step3Title: '根据数据，客制化你的枕头或床褥',
+    step3Desc: '医师根据检查结果和身体数据，帮你搭配最适合你的产品。',
+    processNote: '⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！',
+    locTitle: '我们的 <em>2 个</em> Showroom 地点',
+    ctaBtn: '马上预约我的位子！ →',
+  }
+};
+
+function setLang(lang) {
+  const t = translations[lang];
+  document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--deep)' : 'var(--mute)';
+  document.getElementById('btn-cn').style.color = lang === 'cn' ? 'var(--deep)' : 'var(--mute)';
+
+  // Cred bar (target the text node after the dot span)
+  const credBar = document.querySelector('.cred-bar');
+  credBar.innerHTML = '<span class="dot"></span>' + t.credBar;
+
+  document.getElementById('hero-h1').innerHTML = t.h1;
+  document.getElementById('hero-sub').innerHTML = t.heroSub;
+  document.getElementById('mini-title').innerHTML = t.miniTitle;
+  document.getElementById('mini-label-1').innerHTML = t.miniLabel1;
+  document.getElementById('mini-opt-1a').innerHTML = t.miniOpt1a;
+  document.getElementById('mini-opt-1b').innerHTML = t.miniOpt1b;
+  document.getElementById('mini-label-2').innerHTML = t.miniLabel2;
+  document.getElementById('mini-label-3').innerHTML = t.miniLabel3;
+  document.getElementById('mini-btn').innerHTML = t.miniBtn;
+  document.getElementById('mini-note').innerHTML = t.miniNote;
+  document.getElementById('testi-title').innerHTML = t.testiTitle;
+  document.getElementById('proof-google').innerHTML = t.proofGoogle;
+  document.getElementById('partner-title').innerHTML = t.partnerTitle;
+  document.getElementById('process-title').innerHTML = t.processTitle;
+  document.getElementById('step1-title').innerHTML = t.step1Title;
+  document.getElementById('step1-desc').innerHTML = t.step1Desc;
+  document.getElementById('step2-title').innerHTML = t.step2Title;
+  document.getElementById('step2-desc').innerHTML = t.step2Desc;
+  document.getElementById('step3-title').innerHTML = t.step3Title;
+  document.getElementById('step3-desc').innerHTML = t.step3Desc;
+  document.getElementById('process-note').innerHTML = t.processNote;
+  document.getElementById('loc-title').innerHTML = t.locTitle;
+  document.getElementById('cta-btn').innerHTML = t.ctaBtn;
+
+  // Re-bind chip events after innerHTML swap
+  document.querySelectorAll('.mini-chip input').forEach(inp => {
+    inp.addEventListener('change', (e) => {
+      const group = e.target.closest('.mini-radio-group');
+      group.querySelectorAll('.mini-chip').forEach(c => c.classList.remove('selected'));
+      e.target.closest('.mini-chip').classList.add('selected');
+      const errId = e.target.name === 'heroProduct' ? 'errProduct' : 'errLocation';
+      document.getElementById(errId).classList.remove('show');
+    });
+  });
+}
+
 // ===== HERO MINI FORM — CHIP SELECTION =====
 document.querySelectorAll('.mini-chip input').forEach(inp => {
   inp.addEventListener('change', (e) => {
