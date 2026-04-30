@@ -96,7 +96,7 @@ section{padding:90px 0;position:relative;overflow:hidden}
 .hero-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;
 }
-.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;}
+.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;}
 .hero h1{
   font-family:'Playfair Display','Noto Sans SC',serif;
   font-size:clamp(32px,4vw,54px);
@@ -400,7 +400,8 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .hero-brand{margin:0 auto 28px}
   .hero-brand img{height:55px}
   .hero-grid{grid-template-columns:1fr;gap:30px}
-  .cred-bar{font-size:13px;padding:8px 14px;margin-bottom:20px}
+  .cred-bar{
+  display:inline-flex;align-items:center;gap:10px;align-self:center;
   .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
   .hero-tag{font-size:16px;margin-top:16px}
   .hero-img-wrap{margin-top:20px}
@@ -605,20 +606,9 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   <div class="wrap">
     <div class="process-2col">
 
-<div class="process-2col">
-
       <!-- LEFT: Content -->
       <div class="process-right">
-        </div>
-
-      <!-- RIGHT: Image -->
-      <div class="process-left">
-        <img src="daniel-sensing-map.png" alt="Dr. Daniel 睡眠咨询" />
-      </div>
-
-    </div>
         <h2 class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
-        <p class="process-sub">整个过程大概只需要 45 分钟到 1 小时，全程由我们的医师陪同。</p>
 
         <div class="steps-simple">
           <div class="step-s">
@@ -647,61 +637,58 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         <div class="process-note-wrap" style="margin-top:24px">
           <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
         </div>
-
-        <!-- Showroom Locations -->
-        </div><!-- close process-right -->
+      </div>
 
       <!-- RIGHT: Image -->
       <div class="process-left">
         <img src="daniel-sensing-map.png" alt="Dr. Daniel 睡眠咨询" />
       </div>
 
-    </div><!-- close process-2col -->
+    </div>
 
+    <!-- Locations — full width below the 2-col -->
     <div class="locations">
-          <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
-          <div class="location-grid">
-            <div class="loc-card">
-              <div class="loc-img">
-                <img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur" />
-              </div>
-              <div class="loc-body">
-                <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
-                <div class="loc-row">
-                  <div class="loc-label">地址</div>
-                  <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur</div>
-                </div>
-                <div class="loc-row">
-                  <div class="loc-label">营业时间</div>
-                  <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
-                </div>
-              </div>
+      <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+      <div class="location-grid">
+        <div class="loc-card">
+          <div class="loc-img">
+            <img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur" />
+          </div>
+          <div class="loc-body">
+            <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
+            <div class="loc-row">
+              <div class="loc-label">地址</div>
+              <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur</div>
             </div>
-            <div class="loc-card">
-              <div class="loc-img">
-                <img src="butterworth.webp" alt="Lunox Butterworth Penang" />
-              </div>
-              <div class="loc-body">
-                <div class="loc-name">Butterworth <span>· Penang</span></div>
-                <div class="loc-row">
-                  <div class="loc-label">地址</div>
-                  <div class="loc-text">Pusat Perniagaan Raja Uda, 16, Jalan Raja Uda, Kampung Baharu, 12300 Butterworth, Pulau Pinang</div>
-                </div>
-                <div class="loc-row">
-                  <div class="loc-label">营业时间</div>
-                  <div class="loc-text">10am – 6pm <span class="loc-dim">(Tues – Sun)</span><br>Closed <span class="loc-dim">(Mon)</span></div>
-                </div>
-              </div>
+            <div class="loc-row">
+              <div class="loc-label">营业时间</div>
+              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
             </div>
           </div>
         </div>
-
-        <div style="margin-top:36px">
-          <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
+        <div class="loc-card">
+          <div class="loc-img">
+            <img src="butterworth.webp" alt="Lunox Butterworth Penang" />
+          </div>
+          <div class="loc-body">
+            <div class="loc-name">Butterworth <span>· Penang</span></div>
+            <div class="loc-row">
+              <div class="loc-label">地址</div>
+              <div class="loc-text">Pusat Perniagaan Raja Uda, 16, Jalan Raja Uda, Kampung Baharu, 12300 Butterworth, Pulau Pinang</div>
+            </div>
+            <div class="loc-row">
+              <div class="loc-label">营业时间</div>
+              <div class="loc-text">10am – 6pm <span class="loc-dim">(Tues – Sun)</span><br>Closed <span class="loc-dim">(Mon)</span></div>
+            </div>
+          </div>
         </div>
-
       </div>
     </div>
+
+    <div style="margin-top:36px;text-align:center">
+      <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
+    </div>
+
   </div>
 </section>
 
