@@ -47,26 +47,15 @@ a{color:inherit;text-decoration:none}
   box-shadow:0 10px 30px rgba(73,0,82,.25);
 }
 .btn-pill:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(73,0,82,.35);background:var(--deep-2)}
-.btn-pill.ghost{background:transparent;color:var(--deep);border:2px solid var(--deep);box-shadow:none}
-.btn-pill.ghost:hover{background:var(--deep);color:#fff}
 
-.cta-center{text-align:center;margin:40px 0}
+.cta-center{text-align:center;margin:50px 0 10px}
 
 /* SECTION */
-section{padding:90px 0;position:relative;overflow:hidden}
+section{padding:80px 0;position:relative;overflow:hidden}
 .sec-soft{background:var(--soft)}
 .sec-white{background:var(--white)}
-.sec-deep{background:var(--deep);color:#fff}
 
-.h-display{
-  font-family:'Playfair Display','Noto Sans SC',serif;
-  font-weight:700;
-  font-size:clamp(34px,4.6vw,64px);
-  line-height:1.08;
-  color:var(--deep);
-  letter-spacing:-.5px;
-}
-.h-display em{font-style:italic;font-weight:600}
+/* HEADLINES */
 .h-section{
   font-family:'Playfair Display','Noto Sans SC',serif;
   font-weight:700;
@@ -77,9 +66,37 @@ section{padding:90px 0;position:relative;overflow:hidden}
   letter-spacing:-.3px;
 }
 .h-section em{font-style:italic;color:var(--orchid)}
-.sub-lead{
-  font-size:17px;color:var(--mute);
-  max-width:680px;margin:18px auto 0;text-align:center;
+
+/* Main page title (cred-bar copy promoted to H1) */
+.main-title{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-weight:700;
+  font-size:clamp(30px,4vw,52px);
+  line-height:1.18;
+  color:var(--deep);
+  text-align:center;
+  letter-spacing:-.4px;
+  margin:0 auto 50px;
+  max-width:920px;
+}
+.main-title em{font-style:italic;color:var(--orchid);font-weight:700}
+
+/* Block titles for Locations / FAQ */
+.block{margin-top:80px}
+.block-title{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-weight:700;
+  font-size:clamp(24px,2.8vw,36px);
+  line-height:1.25;
+  color:var(--deep);
+  text-align:center;
+  letter-spacing:-.2px;
+  margin-bottom:10px;
+}
+.block-title em{font-style:italic;color:var(--orchid)}
+.block-sub{
+  font-size:15px;color:var(--mute);
+  text-align:center;max-width:560px;margin:0 auto 36px;
 }
 
 /* Decorative sparkle */
@@ -89,304 +106,117 @@ section{padding:90px 0;position:relative;overflow:hidden}
   opacity:.65;
 }
 
-/* ===== HERO ===== */
-.hero{
-  background:linear-gradient(180deg,var(--soft) 0%,var(--soft-2) 100%);
-  padding:60px 0 90px;
+/* ===== TOP LOGO HEADER ===== */
+.page-header{
+  background:var(--soft);
+  padding:40px 0 28px;
+  text-align:center;
 }
-.hero-brand{
-  text-align:center;margin:0 auto 40px;
-}
-.hero-brand img{
-  height:73px;width:auto;display:inline-block;
+.page-header img{
+  height:70px;width:auto;display:inline-block;
   border-radius:0;background:transparent;
 }
-.cred-bar{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:14px;color:var(--deep);
-  background:#fff;border:1px solid var(--line);
-  padding:10px 18px;border-radius:999px;
-  margin:0 0 28px;
-  font-weight:500;
-  box-shadow:0 4px 14px rgba(73,0,82,.06);
-}
-.cred-bar .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
 
-.hero-grid{
-  display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center;
+/* ===== PROCESS (2-col compact — from referral page) ===== */
+.process-2col{
+  display:grid;
+  grid-template-columns:1fr 1.15fr;
+  gap:60px;
+  align-items:start;
+  margin-top:20px;
 }
-.hero h1{
-  font-family:'Playfair Display','Noto Sans SC',serif;
-  font-size:clamp(36px,4.6vw,60px);
-  line-height:1.12;font-weight:700;color:var(--deep);
-  letter-spacing:-.8px;
+.process-left{
+  position:sticky;
+  top:30px;
+  align-self:start;
 }
-.hero h1 em{font-style:italic;color:var(--orchid);font-weight:600}
-.hero-tag{
-  font-size:18px;color:var(--mute);margin-top:22px;max-width:560px;
-}
-
-/* A14: bullets — frame removed, single line, only check dot kept */
-.bullets{
-  display:flex;flex-direction:column;gap:14px;margin-top:28px;
-  padding:0;list-style:none;
-}
-.bullets li{
-  list-style:none;background:transparent;
-  padding:0;border:none;border-radius:0;
-  font-size:15px;font-weight:500;color:var(--deep);
-  display:inline-flex;align-items:center;gap:10px;
-  box-shadow:none;
-}
-.check{
-  display:inline-flex;width:20px;height:20px;border-radius:50%;
-  background:var(--deep);color:#fff;align-items:center;justify-content:center;
-  font-size:12px;font-weight:700;flex-shrink:0;
-}
-.hero-ctas{display:flex;gap:14px;margin-top:36px;flex-wrap:wrap}
-
-/* A3: transparent embedded hero image, no frame, no shadow, no overlay */
-.hero-img-wrap{
-  background:transparent;
-  border-radius:0;
-  box-shadow:none;
-  overflow:visible;
-}
-.hero-img-wrap img{
+.process-left img{
   width:100%;height:auto;
-  background:transparent;
-  border-radius:0;
-  box-shadow:none;
+  border-radius:20px;
   display:block;
-}
-
-/* ===== TESTIMONY (A7: new layout) ===== */
-.testi-hero{
-  margin:40px auto 40px;
-  max-width:1000px;
-}
-.testi-hero img{
-  width:100%;height:auto;
-  border-radius:0;
-  background:transparent;
-  display:block;
-}
-.proof-row{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:30px;align-items:center;
-  max-width:1000px;margin:0 auto;
-  padding:36px 40px;
-  border-top:1px solid var(--line);
-}
-.proof-item{
-  display:flex;align-items:center;gap:18px;
-  justify-content:center;
-}
-.proof-item.right{justify-content:center}
-.proof-item img{
-  height:80px;width:auto;max-width:140px;object-fit:contain;
-  flex-shrink:0;
-  background:transparent;border-radius:0;
-}
-.proof-item .txt{
-  font-size:15px;color:var(--ink);font-weight:500;line-height:1.5;
-}
-.proof-item .txt strong{color:var(--deep)}
-
-/* ===== COMPARISON ===== */
-.compare{
-  display:grid;grid-template-columns:1fr 1fr;gap:0;
-  margin-top:40px;border-radius:24px;overflow:hidden;
+  object-fit:cover;
   box-shadow:0 20px 50px rgba(73,0,82,.12);
-  border:1px solid var(--line);
 }
-.compare-col{padding:0;background:#fff}
-.compare-col.lunox{background:var(--deep);color:#fff}
-.compare-head{
-  padding:28px 30px;font-weight:700;font-size:20px;
-  border-bottom:1px solid var(--line);
-  display:flex;align-items:center;gap:12px;
+.process-right .h-section{text-align:left}
+.steps-simple{
+  display:flex;flex-direction:column;gap:16px;
+  margin-top:0;
 }
-.compare-col.lunox .compare-head{
-  border-bottom:1px solid rgba(255,255,255,.15);
-  background:linear-gradient(90deg,var(--deep) 0%,var(--deep-2) 100%);
-}
-.compare-head .pill{
-  font-size:11px;padding:4px 10px;border-radius:999px;
-  background:#eee;color:#666;text-transform:uppercase;letter-spacing:1px;font-weight:600;
-}
-.compare-col.lunox .pill{background:rgba(255,255,255,.18);color:#fff}
-.compare-row{
-  padding:24px 30px;font-size:15.5px;line-height:1.6;
-  border-bottom:1px solid var(--line);
-  display:flex;gap:14px;align-items:flex-start;
-}
-.compare-col.lunox .compare-row{border-bottom:1px solid rgba(255,255,255,.1)}
-.compare-row:last-child{border-bottom:none}
-.compare-row .ic{
-  flex:0 0 24px;width:24px;height:24px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-weight:700;font-size:14px;margin-top:1px;
-}
-.compare-col:not(.lunox) .ic{background:#F4E7E9;color:#B85050}
-.compare-col.lunox .ic{background:rgba(255,255,255,.18);color:#fff}
-
-/* ===== PROCESS ===== */
-.process-block{margin-top:50px}
-.process-label{
-  display:flex;align-items:center;gap:16px;margin-bottom:30px;
-}
-.process-label h3{
-  font-family:'Playfair Display','Noto Sans SC',serif;
-  font-size:30px;font-weight:700;color:var(--deep);font-style:italic;
-}
-.process-label .line{flex:1;height:1px;background:var(--line)}
-.process-label .chip{
-  background:var(--deep);color:#fff;padding:6px 14px;
-  border-radius:999px;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
-}
-.steps{
-  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
-}
-.steps.three{grid-template-columns:repeat(3,1fr)}
-.step{
-  background:#fff;border-radius:20px;overflow:hidden;
-  border:1px solid var(--line);
-  box-shadow:0 10px 30px rgba(73,0,82,.06);
+.step-s{
+  display:flex;gap:18px;align-items:flex-start;
+  padding:20px 22px;background:#fff;
+  border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 6px 20px rgba(73,0,82,.05);
   transition:transform .25s;
-  display:flex;flex-direction:column;
 }
-.step:hover{transform:translateY(-4px)}
-.step-img{
-  aspect-ratio:4/3;background:var(--soft);overflow:hidden;
-}
-.step-img img{width:100%;height:100%;object-fit:cover;border-radius:0}
-.step-body{padding:22px 22px 26px;display:flex;flex-direction:column;gap:10px;flex:1}
-.step-num{
-  width:38px;height:38px;border-radius:50%;
+.step-s:hover{transform:translateX(4px)}
+.step-s .snum{
+  width:40px;height:40px;border-radius:50%;
   background:var(--deep);color:#fff;
   display:flex;align-items:center;justify-content:center;
   font-weight:700;font-size:16px;
   font-family:'Playfair Display',serif;
+  flex-shrink:0;margin-top:1px;
 }
-.step h4{color:var(--deep);font-size:18px;font-weight:700;line-height:1.3}
-.step p{color:var(--mute);font-size:14px;line-height:1.6}
+.step-s .scontent h4{color:var(--deep);font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3}
+.step-s .scontent p{color:var(--mute);font-size:14px;line-height:1.6}
 .process-note{
-  text-align:center;margin-top:40px;
-  font-size:16px;color:var(--deep);font-weight:500;
-  background:rgba(177,157,227,.25);
-  padding:18px 24px;border-radius:16px;display:inline-block;
+  text-align:center;margin-top:24px;
+  font-size:15px;color:var(--deep);font-weight:500;
+  background:rgba(177,157,227,.35);
+  padding:16px 22px;border-radius:14px;display:inline-block;
 }
 .process-note-wrap{text-align:center}
-.locations{margin-top:70px}
-.locations-title{font-family:'Playfair Display','Noto Sans SC',serif;text-align:center;color:var(--deep);font-size:clamp(24px,2.6vw,32px);font-weight:700;margin-bottom:30px}
-.locations-title em{font-style:italic;color:var(--orchid)}
-.location-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
-.loc-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 12px 34px rgba(73,0,82,.08);display:flex;flex-direction:column;transition:transform .25s}
+
+/* ===== LOCATIONS (3 cards) ===== */
+.locations{margin-top:30px}
+.location-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.loc-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1px solid var(--line);box-shadow:0 12px 34px rgba(73,0,82,.08);
+  display:flex;flex-direction:column;transition:transform .25s;
+}
 .loc-card:hover{transform:translateY(-4px)}
 .loc-img{aspect-ratio:16/10;background:var(--soft);overflow:hidden}
 .loc-img img{width:100%;height:100%;object-fit:cover;border-radius:0;display:block}
-.loc-body{padding:24px 26px 28px;display:flex;flex-direction:column;gap:14px}
-.loc-name{font-family:'Playfair Display','Noto Sans SC',serif;font-size:22px;font-weight:700;color:var(--deep);line-height:1.2}
-.loc-name span{font-style:italic;color:var(--orchid);font-weight:500;font-size:16px}
-.loc-row{display:flex;gap:12px;align-items:flex-start}
-.loc-label{flex-shrink:0;min-width:64px;background:var(--soft);color:var(--deep);font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;text-align:center;letter-spacing:.5px;margin-top:2px}
-.loc-text{font-size:14px;line-height:1.65;color:var(--ink)}
+.loc-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px}
+.loc-name{
+  font-family:'Playfair Display','Noto Sans SC',serif;
+  font-size:20px;font-weight:700;color:var(--deep);line-height:1.2;
+}
+.loc-name span{font-style:italic;color:var(--orchid);font-weight:500;font-size:14px}
+.loc-row{display:flex;gap:10px;align-items:flex-start}
+.loc-label{
+  flex-shrink:0;min-width:60px;background:var(--soft);color:var(--deep);
+  font-size:11px;font-weight:700;padding:5px 9px;border-radius:999px;
+  text-align:center;letter-spacing:.5px;margin-top:2px;
+}
+.loc-text{font-size:13.5px;line-height:1.6;color:var(--ink)}
 .loc-dim{color:var(--mute);font-size:13px}
-@media (max-width:680px){
-  .locations{margin-top:50px}
-  .locations-title{font-size:22px;margin-bottom:22px}
-  .location-grid{grid-template-columns:1fr;gap:20px}
-  .loc-body{padding:20px 20px 22px;gap:12px}
-  .loc-name{font-size:20px}
-  .loc-name span{font-size:14px;display:block;margin-top:2px}
-  .loc-label{min-width:56px;font-size:11px;padding:4px 8px}
-  .loc-text{font-size:13.5px}
-}
-/* ===== FINAL CTA (A10: re-sequenced) ===== */
-.final-cta{
-  background:linear-gradient(135deg,var(--deep) 0%,#2E0036 100%);
-  color:#fff;padding:90px 0;position:relative;overflow:hidden;
-}
-.final-cta::before{
-  content:"";position:absolute;top:-100px;right:-100px;
-  width:400px;height:400px;border-radius:50%;
-  background:radial-gradient(circle,rgba(177,157,227,.25),transparent 70%);
-}
-.final-cta::after{
-  content:"";position:absolute;bottom:-150px;left:-100px;
-  width:500px;height:500px;border-radius:50%;
-  background:radial-gradient(circle,rgba(173,87,185,.2),transparent 70%);
-}
-.final-cta .h-section{color:#fff}
-.final-cta .h-section em{color:var(--lavender)}
-.final-inner{
-  position:relative;z-index:2;
-  max-width:860px;margin:0 auto;text-align:center;
-}
-.video-wrap{
-  position:relative;border-radius:20px;overflow:hidden;
-  box-shadow:0 30px 60px rgba(0,0,0,.35);
-  background:#000;
-  aspect-ratio:16/10;
-  margin:0 auto 40px;
-}
-.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
-.video-tag{
-  position:absolute;top:18px;left:18px;z-index:2;
-  background:rgba(255,255,255,.95);color:var(--deep);
-  padding:8px 14px;border-radius:999px;font-size:12px;font-weight:700;
-  letter-spacing:1px;text-transform:uppercase;
-  display:flex;align-items:center;gap:8px;
-}
-.video-tag .live{
-  width:8px;height:8px;border-radius:50%;background:#ff4757;
-  box-shadow:0 0 0 4px rgba(255,71,87,.2);
-  animation:pulse 1.8s infinite;
-}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-/* A15: merged slot description — NOT a sub-headline anymore */
-.slot-desc{
-  margin:26px auto 0;max-width:640px;
-  font-size:16px;line-height:1.7;color:#E0D4F0;
-  text-align:center;
-}
-.slot-desc strong{color:#fff;font-weight:700}
-.slot-desc em{font-style:italic;color:var(--lavender);font-weight:600}
-
-.review-shot{
-  margin:26px auto 0;max-width:520px;
-  border-radius:14px;overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.3);
-}
-.review-shot img{width:100%;display:block;border-radius:14px}
-.final-cta .btn-pill{background:#fff;color:var(--deep);margin-top:36px}
-.final-cta .btn-pill:hover{background:var(--lavender);color:var(--deep)}
-
-/* ===== FAQ ===== */
-.faq{max-width:820px;margin:40px auto 0}
+/* ===== FAQ (collapsible) ===== */
+.faq{max-width:820px;margin:30px auto 0}
 .faq-item{
   background:#fff;border:1px solid var(--line);border-radius:16px;
-  margin-bottom:14px;overflow:hidden;
+  margin-bottom:12px;overflow:hidden;
   transition:all .25s;
 }
 .faq-item[open]{box-shadow:0 10px 30px rgba(73,0,82,.08);border-color:var(--lavender)}
 .faq-item summary{
-  padding:22px 26px;cursor:pointer;
-  font-weight:600;font-size:17px;color:var(--deep);
+  padding:20px 24px;cursor:pointer;
+  font-weight:600;font-size:16px;color:var(--deep);
   display:flex;justify-content:space-between;align-items:center;
   list-style:none;gap:16px;
 }
 .faq-item summary::-webkit-details-marker{display:none}
 .faq-item summary::after{
-  content:"+";font-size:26px;color:var(--deep);transition:transform .25s;
+  content:"+";font-size:24px;color:var(--deep);transition:transform .25s;
   font-weight:300;flex-shrink:0;
 }
 .faq-item[open] summary::after{transform:rotate(45deg)}
-.faq-item .a{padding:0 26px 24px;color:var(--mute);font-size:15px;line-height:1.7}
+.faq-item .a{padding:0 24px 22px;color:var(--mute);font-size:14.5px;line-height:1.7}
 
-/* ===== FOOTER (A13: logo instead of text) ===== */
+/* ===== FOOTER ===== */
 footer{
   background:var(--deep);color:#fff;padding:50px 0 30px;text-align:center;
 }
@@ -443,7 +273,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 .form-row input:focus,.form-row select:focus,.form-row textarea:focus{
   outline:none;border-color:var(--deep);
 }
-  .form-row.error label{color:#E11D48}
+.form-row.error label{color:#E11D48}
 .form-row.error input,
 .form-row.error textarea{border-color:#E11D48!important;background:#FEF2F2}
 .error-msg{
@@ -465,21 +295,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 }
 .chip-opt input{display:none}
 .chip-opt.selected{background:var(--deep);color:#fff;border-color:var(--deep)}
-.form-row .file-up{
-  border:1.5px dashed var(--line);border-radius:10px;
-  padding:16px;text-align:center;color:var(--mute);
-  font-size:13px;cursor:pointer;background:var(--soft-2);
-}
-.form-row .file-up:hover{border-color:var(--deep);color:var(--deep)}
-.sample-pic{display:flex;align-items:center;gap:12px;margin:8px 0 10px;padding:10px;background:var(--soft-2);border-radius:10px}
-.sample-pic img{width:72px;height:96px;object-fit:cover;border-radius:8px;flex-shrink:0}
-.sample-pic span{font-size:12px;color:var(--mute);line-height:1.4}
-.logo-marquee{overflow:hidden;width:100%;position:relative;-webkit-mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%);mask-image:linear-gradient(to right,transparent 0,#000 10%,#000 90%,transparent 100%)}
-.logo-track{display:flex;align-items:center;width:max-content;animation:logoLoop 40s linear infinite}
-.logo-track img{height:60px;width:auto;object-fit:contain;flex-shrink:0;opacity:.85;filter:grayscale(20%);margin-right:40px}
-@keyframes logoLoop{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@media(max-width:768px){.logo-track{gap:40px;animation-duration:30s}.logo-track img{height:44px}}
-  .form-submit{
+.form-submit{
   width:100%;margin-top:8px;justify-content:center;
 }
 .support-line{
@@ -498,60 +314,47 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 .success-view h3{margin-bottom:10px}
 .success-view p{color:var(--mute);margin-bottom:22px}
 
-/* ============ RESPONSIVE — MOBILE OPTIMIZED ============ */
+/* ============ RESPONSIVE ============ */
 @media (max-width: 860px){
-  section{padding:60px 0}
+  section{padding:50px 0}
   .wrap{padding:0 20px}
 
-  /* HERO */
-  .hero{padding:40px 0 60px}
-  .hero-brand{margin:0 auto 28px}
-  .hero-brand img{height:55px}
-  .hero-grid{grid-template-columns:1fr;gap:30px}
-  .cred-bar{font-size:13px;padding:8px 14px;margin-bottom:20px}
-  .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
-  .hero-tag{font-size:16px;margin-top:16px}
-  .bullets{gap:14px 20px;margin-top:20px;flex-direction:column}
-  .bullets li{font-size:14px}
-  .hero-ctas{margin-top:28px;flex-direction:column;align-items:stretch}
-  .hero-ctas .btn-pill{justify-content:center;width:100%}
-  .hero-img-wrap img{max-width:100%;margin:0 auto}
+  /* PAGE HEADER */
+  .page-header{padding:28px 0 22px}
+  .page-header img{height:52px}
 
-  /* TESTIMONY */
-  .testi-hero{margin:30px auto 24px}
-  .proof-row{
-    grid-template-columns:1fr;gap:20px;
-    padding:24px 0;
-  }
-  .proof-item{justify-content:center;text-align:center}
-  .proof-item img{height:60px;max-width:110px}
-  .proof-item .txt{font-size:14px}
-
-  /* COMPARISON */
-  .compare{grid-template-columns:1fr;margin-top:30px}
-  .compare-head{padding:22px 22px;font-size:18px}
-  .compare-row{padding:20px 22px;font-size:14.5px}
+  /* TITLES */
+  .main-title{margin-bottom:36px;font-size:26px;line-height:1.25}
+  .block{margin-top:56px}
+  .block-sub{margin-bottom:26px;font-size:14px}
+  .block-title{font-size:22px}
 
   /* PROCESS */
-  .process-block{margin-top:36px}
-  .process-label{margin-bottom:22px;gap:12px}
-  .process-label .chip{font-size:11px;padding:5px 12px;letter-spacing:1.5px}
-  .steps, .steps.three{grid-template-columns:1fr;gap:16px}
-  .step-body{padding:18px 18px 22px}
+  .process-2col{grid-template-columns:1fr;gap:28px}
+  .process-left{position:relative;top:0}
+  .process-right .h-section{text-align:center}
+  .steps-simple{gap:14px;margin-top:0}
+  .step-s{padding:16px 18px;gap:14px}
+  .step-s .snum{width:36px;height:36px;font-size:15px}
   .process-note{font-size:14px;padding:14px 18px}
 
-  /* FINAL CTA */
-  .final-cta{padding:60px 0}
-  .video-wrap{aspect-ratio:16/10;margin-bottom:28px;border-radius:14px}
-  .video-tag{font-size:10px;padding:6px 12px;top:12px;left:12px}
-  .slot-desc{font-size:15px;margin-top:20px;padding:0 6px}
-  .review-shot{margin-top:22px}
-  .final-cta .btn-pill{margin-top:28px;width:100%;justify-content:center;max-width:360px}
+  /* LOCATIONS */
+  .locations{margin-top:20px}
+  .location-grid{grid-template-columns:1fr;gap:18px}
+  .loc-body{padding:20px 20px 22px;gap:12px}
+  .loc-name{font-size:19px}
+  .loc-name span{font-size:13.5px;display:block;margin-top:2px}
+  .loc-label{min-width:56px;font-size:11px;padding:4px 8px}
+  .loc-text{font-size:13.5px}
 
   /* FAQ */
-  .faq{margin-top:26px}
-  .faq-item summary{padding:18px 20px;font-size:15.5px}
+  .faq{margin-top:20px}
+  .faq-item summary{padding:18px 20px;font-size:15px}
   .faq-item .a{padding:0 20px 20px;font-size:14px}
+
+  /* CTA */
+  .cta-center{margin:36px 0 0}
+  .cta-center .btn-pill{width:100%;justify-content:center;max-width:360px}
 
   /* FOOTER */
   .footer-logo img{height:56px}
@@ -561,246 +364,80 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .modal h3{padding-right:48px}
   .form-grid{grid-template-columns:1fr}
 }
-
-@media (max-width: 480px){
-  .hero h1{font-size:26px}
-  .hero-tag{font-size:15px}
-  .bullets{gap:12px 16px;flex-direction:column}
-  .bullets li{font-size:13.5px}
-  .proof-item{flex-direction:column;align-items:center;gap:10px;text-align:center}
-  .proof-item img{height:56px}
-}
 </style>
 </head>
 <body>
 
-<!-- A4b (Round 2): top navigation bar removed entirely -->
-
-<!-- ===== HERO ===== -->
-<section class="hero">
-  <span class="spark" style="top:80px;left:40px">✦</span>
-  <span class="spark" style="top:200px;right:80px">✦</span>
+<!-- ===== TOP LOGO HEADER ===== -->
+<div class="page-header">
   <div class="wrap">
-    <!-- Lunox logo (purple) at top center of hero -->
-    <div class="hero-brand">
-      <img src="lunox-logo/lunox-logo-purple.png" alt="Lunox" />
-    </div>
-    <div class="hero-grid">
-      <div>
-        <!-- A1: credibility bar aligned LEFT -->
-        <div class="cred-bar">
-          <span class="dot"></span>
-          帮助超过 <strong>&nbsp;10,000+&nbsp;</strong> 位顾客找到适合的床和枕头
-        </div>
-        <h1>全马第一个，由专业 <em>Healthcare</em> 团队服务你的睡眠品牌</h1>
-        <p class="hero-tag">我们只做一件事：用我们的专业医学知识，帮你解决睡眠问题。</p>
-        <!-- A14: bullets — frame removed, only check dot kept, one line on desktop -->
-        <ul class="bullets">
-          <li><span class="check">✓</span> 医师一对一脊椎检查</li>
-          <li><span class="check">✓</span> 用科学数据帮你选</li>
-          <li><span class="check">✓</span> 客制化，不是 one size fits all</li>
-        </ul>
-        <div class="hero-ctas">
-          <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
-          <a href="#process" class="btn-pill ghost">了解流程</a>
-        </div>
-      </div>
-      <!-- Round 2 #1: hero image replaced with V2/hero image 2.png -->
-      <div class="hero-img-wrap">
-        <img src="element/v2/hero-image-2.png" alt="Lunox Healthcare Team" />
-      </div>
-    </div>
+    <img src="lunox-logo/lunox-logo-purple.png" alt="Lunox" />
   </div>
-</section>
+</div>
 
-<!-- ===== TESTIMONY (A7: new layout) ===== -->
-<section class="sec-white" id="testimony">
+<!-- ===== UNIFIED SECTION ===== -->
+<section class="sec-soft" id="info">
+  <span class="spark" style="top:60px;left:40px">✦</span>
+  <span class="spark" style="top:240px;right:80px">✦</span>
   <div class="wrap">
-    <h2 class="h-section">你来之后，也会跟他们<em>有一样的感受</em></h2>
-    
-    <!-- Embedded review picture -->
-    <div class="testi-hero">
-   <img src="review-v2.png" alt="顾客反馈 review" />
-    </div>
 
-    <!-- Two inline proofs at bottom (like layout.png) -->
-    <div class="proof-row">
-      <div class="proof-item">
-        <img src="element/v1/health-award.png" alt="Natural Health 健康时尚 Awards 2023" />
-        <div class="txt">
-          荣获 <strong>Natural Health &amp; 健康时尚</strong><br>
-          Readers' Choice Awards 2023<br>
-          <strong>最佳枕头 &amp; 抱枕奖</strong>
-        </div>
-      </div>
-      <div class="proof-item right">
-        <img src="element/v1/google-review.png" alt="Google Reviews 5 stars" />
-        <div class="txt">
-          <strong>Google 5 星顾客好评</strong>
-        </div>
-      </div>
-    </div>
+    <!-- Main page title (from cred bar copy, promoted to H1) -->
+    <h1 class="main-title">帮助超过 <em>10,000+</em> 位顾客<br>找到适合的床和枕头</h1>
 
-    <!-- A8: PARTNERS — image embedded, no frame -->
-    <div style="text-align:center;margin-top:70px">
-      <h3 style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
-        与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证
-      </h3>
-      <div class="logo-marquee">
-        <div class="logo-track">
-          <img src="partner-aikang.png" alt=""/>
-          <img src="partner-chironature.png" alt=""/>
-          <img src="partner-infinite.png" alt=""/>
-          <img src="partner-persistence.png" alt=""/>
-          <img src="partner-gtc.png" alt=""/>
-          <img src="partner-tcm.png" alt=""/>
-          <img src="partner-chirohealth.png" alt=""/>
-          <img src="partner-infinity.png" alt=""/>
-          <img src="partner-posture.png" alt=""/>
-          <img src="partner-topcare.png" alt=""/>
-          <img src="partner-reve.png" alt=""/>
-          <img src="partner-asap.png" alt=""/>
-          <img src="partner-aikang.png" alt="" aria-hidden="true"/>
-          <img src="partner-chironature.png" alt="" aria-hidden="true"/>
-          <img src="partner-infinite.png" alt="" aria-hidden="true"/>
-          <img src="partner-persistence.png" alt="" aria-hidden="true"/>
-          <img src="partner-gtc.png" alt="" aria-hidden="true"/>
-          <img src="partner-tcm.png" alt="" aria-hidden="true"/>
-          <img src="partner-chirohealth.png" alt="" aria-hidden="true"/>
-          <img src="partner-infinity.png" alt="" aria-hidden="true"/>
-          <img src="partner-posture.png" alt="" aria-hidden="true"/>
-          <img src="partner-topcare.png" alt="" aria-hidden="true"/>
-          <img src="partner-reve.png" alt="" aria-hidden="true"/>
-          <img src="partner-asap.png" alt="" aria-hidden="true"/>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- ===== PROCESS (2-col compact, 3 unified steps) ===== -->
+    <div class="process-2col">
 
-<!-- ===== COMPARISON ===== -->
-<section class="sec-soft" id="compare">
-  <div class="wrap">
-    <h2 class="h-section">普通品牌和 <em>Lunox</em> 的区别</h2>
-    <p class="sub-lead">为什么选床 / 选枕头，不能像买衣服一样随便 "feel" 一下就决定？</p>
-
-    <div class="compare">
-      <div class="compare-col">
-        <div class="compare-head">
-          <span>Brand XYZ</span>
-          <span class="pill">普通品牌</span>
-        </div>
-        <div class="compare-row"><span class="ic">✕</span><span>Salesman 服务你，他们 care 自己的业绩多过 care 你的健康。</span></div>
-        <div class="compare-row"><span class="ic">✕</span><span>你会买单是因为你 "feel" 到舒服。</span></div>
-        <div class="compare-row"><span class="ic">✕</span><span>只有几种款式给你选，你只能将就和取舍。</span></div>
+      <!-- LEFT: sticky image -->
+      <div class="process-left">
+        <img src="daniel-sensing-map.png" alt="Lunox 医师睡眠咨询" />
       </div>
-      <div class="compare-col lunox">
-        <div class="compare-head">
-          <span>Lunox</span>
-          <span class="pill">Healthcare 团队</span>
-        </div>
-        <div class="compare-row"><span class="ic">✓</span><span>专业 Healthcare 团队服务你，用医学知识帮你分析什么搭配适合你。</span></div>
-        <div class="compare-row"><span class="ic">✓</span><span>医师用专业器材分析你的身体状况，再根据数据帮你选。</span></div>
-        <div class="compare-row"><span class="ic">✓</span><span>医师根据你脊椎状况和身体数据 <strong>customize</strong>。</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- ===== PROCESS (A9: subheadline removed) ===== -->
-<section class="sec-white" id="process">
-  <div class="wrap">
-    <h2 class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
-
-    <!-- PILLOW -->
-    <div class="process-block">
-      <div class="process-label">
-        <span class="chip">枕头 · PILLOW</span>
-        <span class="line"></span>
-      </div>
-      <div class="steps three">
-        <div class="step">
-          <div class="step-img"><img src="element/v1/giselle-consultation.png" alt="免费睡眠咨询"/></div>
-          <div class="step-body">
-            <div class="step-num">1</div>
-            <h4>医师一对一睡眠咨询</h4>
-            <p>了解你的睡姿、作息、身体状况。</p>
+      <!-- RIGHT: content -->
+      <div class="process-right">
+        <div class="steps-simple">
+          <div class="step-s">
+            <div class="snum">1</div>
+            <div class="scontent">
+              <h4>医师一对一睡眠咨询</h4>
+              <p>了解你的睡姿、身体状况和日常作息。</p>
+            </div>
+          </div>
+          <div class="step-s">
+            <div class="snum">2</div>
+            <div class="scontent">
+              <h4>脊椎检查 + 测量</h4>
+              <p>医师亲手检查，精准至 CM（有 X-ray 可以带来让医师看）。</p>
+            </div>
+          </div>
+          <div class="step-s">
+            <div class="snum">3</div>
+            <div class="scontent">
+              <h4>根据数据，客制化你的枕头或床褥</h4>
+              <p>医师根据检查结果和身体数据，帮你搭配最适合你的产品。</p>
+            </div>
           </div>
         </div>
-        <div class="step">
-          <div class="step-img"><img src="element/v1/giselle-checking-spine.png" alt="脊椎检查"/></div>
-          <div class="step-body">
-            <div class="step-num">2</div>
-            <h4>脊椎检查 + 颈椎测量</h4>
-            <p>医师亲手检查和测量脊椎弧度，精准至 CM（有 X-ray 可以带来让医师看）。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-img"><img src="element/v1/giselle-matching-pillow.png" alt="枕头搭配"/></div>
-          <div class="step-body">
-            <div class="step-num">3</div>
-            <h4>枕头搭配</h4>
-            <p>医师根据检查状况和数据，帮你搭配适合的软硬度、高度和形状的枕头（多达 20 多种）。</p>
-          </div>
+
+        <div class="process-note-wrap" style="margin-top:24px">
+          <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
         </div>
       </div>
+
     </div>
 
-    <!-- MATTRESS -->
-    <div class="process-block">
-      <div class="process-label">
-        <span class="chip">床褥 · MATTRESS</span>
-        <span class="line"></span>
-      </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-img"><img src="element/v1/daniel-consultation.png" alt="免费睡眠咨询"/></div>
-          <div class="step-body">
-            <div class="step-num">1</div>
-            <h4>医师一对一睡眠咨询</h4>
-            <p>了解你的睡姿、作息、身体状况。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-img"><img src="element/v1/daniel-checking-spine.png" alt="脊椎检查"/></div>
-          <div class="step-body">
-            <div class="step-num">2</div>
-            <h4>脊椎检查 + 颈椎测量</h4>
-            <p>医师亲手检查和测量脊椎弧度，精准至 CM（有 X-ray 可以带来让医师看）。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-img"><img src="element/v1/daniel-sensing-map.png" alt="Sensing Map 压力测试"/></div>
-          <div class="step-body">
-            <div class="step-num">3</div>
-            <h4>Sensing Map 压力测试<br><span style="font-size:12px;color:var(--mute);font-weight:500">（床褥专用）</span></h4>
-            <p>用数据找出你全身压力分布，知道你身体真正需要什么。</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="step-img"><img src="element/v1/daniel-choosing-materials.png" alt="客制化床褥"/></div>
-          <div class="step-body">
-            <div class="step-num">4</div>
-            <h4>客制化床褥</h4>
-            <p>按你的脊椎检查和压力点数据，帮你客制材质 & 软硬度（双人床也可以根据不同需求客制化）。</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="process-note-wrap">
-      <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
-    </div>
-    <div class="locations">
-      <h3 class="locations-title">我们的 <em>2 个</em> Showroom 地点</h3>
+    <!-- ===== LOCATIONS (3 cards) ===== -->
+    <div class="block locations">
+      <h3 class="block-title">我们的 <em>3 个</em> Showroom 地点</h3>
+      <p class="block-sub">挑离你最近的一间，预约后我们的医师会在那里等你。</p>
       <div class="location-grid">
+
         <div class="loc-card">
-          <div class="loc-img"><img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur"/></div>
+          <div class="loc-img"><img src="bukit-jalil.jpeg" alt="Lunox Zest Point HQ Bukit Jalil"/></div>
           <div class="loc-body">
-            <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
+            <div class="loc-name">Zest Point HQ <span>· Bukit Jalil</span></div>
             <div class="loc-row">
               <div class="loc-label">地址</div>
-              <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur, Wilayah Persekutuan Kuala Lumpur</div>
+              <div class="loc-text">ZP-G-12, Zest Point, Lebuhraya Bukit Jalil, Bandar Kinrara 9, 47180 Puchong, Selangor</div>
             </div>
             <div class="loc-row">
               <div class="loc-label">营业时间</div>
@@ -808,6 +445,22 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             </div>
           </div>
         </div>
+
+        <div class="loc-card">
+          <div class="loc-img"><img src="8trium.webp" alt="Lunox 8Trium Kuala Lumpur"/></div>
+          <div class="loc-body">
+            <div class="loc-name">8Trium <span>· Kuala Lumpur</span></div>
+            <div class="loc-row">
+              <div class="loc-label">地址</div>
+              <div class="loc-text">M2-16-06, Menara 2 8Trium, Jalan Cempaka SD 12/5, Bandar Sri Damansara, 52200 Kuala Lumpur</div>
+            </div>
+            <div class="loc-row">
+              <div class="loc-label">营业时间</div>
+              <div class="loc-text">10:30am – 6:30pm <span class="loc-dim">(Everyday)</span></div>
+            </div>
+          </div>
+        </div>
+
         <div class="loc-card">
           <div class="loc-img"><img src="butterworth.webp" alt="Lunox Butterworth Penang"/></div>
           <div class="loc-body">
@@ -822,76 +475,46 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             </div>
           </div>
         </div>
+
       </div>
     </div>
+
+    <!-- ===== FAQ (collapsible) ===== -->
+    <div class="block">
+      <h3 class="block-title">常见问题</h3>
+      <div class="faq">
+        <details class="faq-item">
+          <summary>Q: 可以 walk-in 吗？</summary>
+          <div class="a">因为我们医师的人数和时间有限，目前我们只接受预约。</div>
+        </details>
+        <details class="faq-item">
+          <summary>Q: 咨询要收费吗？</summary>
+          <div class="a">我们会征收 <strong>RM25 的 专业咨询费</strong>，当天购买产品时会从里面扣除。</div>
+        </details>
+        <details class="faq-item">
+          <summary>Q: 枕头 / 床多少钱？</summary>
+          <div class="a">枕头 <strong>RM299–RM379</strong>。床褥从 <strong>RM3,150</strong> 起，看材质和尺寸而定。</div>
+        </details>
+        <details class="faq-item">
+          <summary>Q: 可以分期吗？</summary>
+          <div class="a">枕头没有这项服务。床的话有 — 支持 <strong>0% 分期</strong>。</div>
+        </details>
+        <details class="faq-item">
+          <summary>Q: 枕头和床有 warranty 吗？</summary>
+          <div class="a">枕头 <strong>2 年 warranty</strong>，床褥 <strong>10 年 warranty</strong>。</div>
+        </details>
+      </div>
+    </div>
+
+    <!-- ===== CTA: opens popup form ===== -->
     <div class="cta-center">
       <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
     </div>
+
   </div>
 </section>
 
-<!-- ===== FINAL CTA (A10: re-sequenced) ===== -->
-<section class="final-cta" id="final-cta">
-  <div class="wrap">
-    <div class="final-inner">
-
-      <!-- 1. Visual first -->
-      <div class="video-wrap">
-        <div class="video-tag"><span class="live"></span> Last Week</div>
-        <video src="full-appointment-vid-updated.mp4" autoplay muted loop playsinline></video>
-      </div>
-
-      <!-- 2. Headline under the video -->
-      <h2 class="h-section">这个是我们<em> 上个星期 </em>的 appointment…</h2>
-
-      <!-- A15: merged — slot line + warning combined as description content, not sub-headline -->
-      <div class="review-shot">
-        <img src="apptmt-full-hire.png" alt="1 star review" />
-      </div>
-      
-      <p class="slot-desc">
-        这个星期<em>只剩下 12 个 slot！</em><br>
-        ⚠️ 注：像Dr讲的这样，因为我们的医师人数和时间有限，我们也在努力扩大我们的团队中，所以这里目前只接受预约，不然真的会等很久！
-      </p>
-      
-      <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="sec-soft" id="faq">
-  <div class="wrap">
-    <h2 class="h-section">常见问题</h2>
-
-    <div class="faq">
-  <details class="faq-item">
-    <summary>Q: 可以 walk-in 吗？</summary>
-    <div class="a">因为我们医师的人数和时间有限，目前我们只接受预约。</div>
-  </details>
-  <details class="faq-item">
-    <summary>Q: 咨询要收费吗？</summary>
-        <div class="a">我们会征收 <strong>RM25 的 专业咨询费</strong>，当天购买产品时会从里面扣除。</div>
-      </details>
-      <details class="faq-item">
-        <summary>Q: 枕头 / 床多少钱？</summary>
-        <div class="a">枕头 <strong>RM299–RM379</strong>。床褥从 <strong>RM3,150</strong> 起，看材质和尺寸而定。</div>
-      </details>
-      <details class="faq-item">
-        <summary>Q: 可以分期吗？</summary>
-        <div class="a">枕头没有这项服务。床的话有 — 支持 <strong>0% 分期</strong>。</div>
-      </details>
-      <details class="faq-item">
-        <summary>Q: 枕头和床有 warranty 吗？</summary>
-        <div class="a">枕头 <strong>2 年 warranty</strong>，床褥 <strong>10 年 warranty</strong>。</div>
-      </details>
-    </div>
-    <!-- A12: CTA button below FAQ removed -->
-  </div>
-</section>
-
-<!-- ===== FOOTER (A13 + A16: Lunox Sleep&Spine Logo White) ===== -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="wrap">
     <div class="footer-logo">
@@ -902,7 +525,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   </div>
 </footer>
 
-<!-- ===== MODAL FORM ===== -->
+<!-- ===== MODAL FORM (popup, with 3 locations) ===== -->
 <div class="modal-bg" id="modal">
   <div class="modal">
     <button class="close" onclick="closeForm()">✕</button>
@@ -911,103 +534,104 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     <div id="formView">
       <h3>填写你资料，让 <em>医师</em> 提前了解你</h3>
       <div class="sub">
-        <strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 ”<strong>全额扣除</strong>！
+        <strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊 “<strong>全额扣除</strong>”！
       </div>
 
       <form id="bookingForm" onsubmit="submitForm(event)">
 
-  <!-- 1. Product -->
-  <div class="form-row full">
-    <label>要预约看枕头还是床垫？*</label>
-    <div class="radio-group">
-      <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
-      <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
-      <span class="error-msg">⚠ 请选择一项</span>
-    </div>
-  </div>
+        <!-- 1. Product -->
+        <div class="form-row full">
+          <label>要预约看枕头还是床垫？*</label>
+          <div class="radio-group">
+            <label class="chip-opt"><input type="radio" name="product" value="枕头" required>枕头 Pillow</label>
+            <label class="chip-opt"><input type="radio" name="product" value="床垫">床垫 Mattress</label>
+            <span class="error-msg">⚠ 请选择一项</span>
+          </div>
+        </div>
 
-  <!-- 2. Location (Online hides when mattress) -->
-  <div class="form-row full">
-    <label>咨询地点 *</label>
-    <div class="radio-group">
-      <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
-      <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
-      <label class="chip-opt" id="onlineOpt"><input type="radio" name="location" value="Online">Online</label>
-      <span class="error-msg">⚠ 请选择一项</span>
-    </div>
-  </div>
+        <!-- 2. Location (Online hides when mattress) — 3 in-person + Online -->
+        <div class="form-row full">
+          <label>咨询地点 *</label>
+          <div class="radio-group">
+            <label class="chip-opt"><input type="radio" name="location" value="Zest Point HQ Bukit Jalil" required>Zest Point HQ (Bukit Jalil)</label>
+            <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium">KL 8Trium</label>
+            <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
+            <label class="chip-opt" id="onlineOpt"><input type="radio" name="location" value="Online">Online</label>
+            <span class="error-msg">⚠ 请选择一项</span>
+          </div>
+        </div>
 
-  <!-- 3. Name + Phone (always) -->
-  <div class="form-grid">
-    <div class="form-row">
-      <label>姓名 *</label>
-      <input type="text" name="name" required/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-    </div>
-    <div class="form-row">
-      <label>电话号码 *</label>
-      <input type="tel" name="phone" required/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-    </div>
-    <div class="form-row">
-      <label>年龄 *</label>
-      <input type="number" name="age" required/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-  </div>
-    <div class="form-row" id="paxRow" style="display:none">
-      <label>几位要来 *</label>
-      <input type="number" name="pax"/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-    </div>
-  </div>
+        <!-- 3. Name + Phone (always) -->
+        <div class="form-grid">
+          <div class="form-row">
+            <label>姓名 *</label>
+            <input type="text" name="name" required/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>电话号码 *</label>
+            <input type="tel" name="phone" required/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>年龄 *</label>
+            <input type="number" name="age" required/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row" id="paxRow" style="display:none">
+            <label>几位要来 *</label>
+            <input type="number" name="pax"/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+        </div>
 
-  <!-- 4. Height + Weight (only pillow + Online) -->
-  <div class="form-grid" id="measureRow" style="display:none">
-    <div class="form-row">
-      <label>身高 (cm) *</label>
-      <input type="number" name="height"/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-    </div>
-    <div class="form-row">
-      <label>体重 (kg) *</label>
-      <input type="number" name="weight"/>
-      <span class="error-msg">⚠ 请填写此栏</span>
-    </div>
-  </div>
+        <!-- 4. Height + Weight (only pillow + Online) -->
+        <div class="form-grid" id="measureRow" style="display:none">
+          <div class="form-row">
+            <label>身高 (cm) *</label>
+            <input type="number" name="height"/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+          <div class="form-row">
+            <label>体重 (kg) *</label>
+            <input type="number" name="weight"/>
+            <span class="error-msg">⚠ 请填写此栏</span>
+          </div>
+        </div>
 
-  <!-- 5. Sleep posture (only pillow + Online) -->
-  <div class="form-row full" id="sleepRow" style="display:none">
-    <label>平时睡姿 *</label>
-    <div class="radio-group">
-      <label class="chip-opt"><input type="radio" name="sleep" value="侧躺">侧躺</label>
-      <label class="chip-opt"><input type="radio" name="sleep" value="平躺">平躺</label>
-      <label class="chip-opt"><input type="radio" name="sleep" value="两种都有">两种都有</label>
-      <span class="error-msg">⚠ 请选择一项</span>
-    </div>
-  </div>
+        <!-- 5. Sleep posture (only pillow + Online) -->
+        <div class="form-row full" id="sleepRow" style="display:none">
+          <label>平时睡姿 *</label>
+          <div class="radio-group">
+            <label class="chip-opt"><input type="radio" name="sleep" value="侧躺">侧躺</label>
+            <label class="chip-opt"><input type="radio" name="sleep" value="平躺">平躺</label>
+            <label class="chip-opt"><input type="radio" name="sleep" value="两种都有">两种都有</label>
+            <span class="error-msg">⚠ 请选择一项</span>
+          </div>
+        </div>
 
-  <!-- 6. Current problems (always) -->
-  <div class="form-row full">
-    <label>目前睡眠问题 <span class="opt">· 多选</span></label>
-    <div class="check-group">
-      <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
-      <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
-    </div>
-  </div>
+        <!-- 6. Current problems (always) -->
+        <div class="form-row full">
+          <label>目前睡眠问题 <span class="opt">· 多选</span></label>
+          <div class="check-group">
+            <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕">经常落枕</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛">肩颈酸痛</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="腰酸背痛">腰酸背痛</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="难以入睡/浅眠">难以入睡 / 浅眠</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="睡醒更累">睡醒更累</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾">富贵包 / 颈椎前倾</label>
+            <label class="chip-opt"><input type="checkbox" name="issue" value="其他">其他</label>
+          </div>
+        </div>
 
-  <button type="submit" class="btn-pill form-submit">
-    Submit →
-  </button>
+        <button type="submit" class="btn-pill form-submit">
+          Submit →
+        </button>
 
-  <p class="support-line">
-  * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
-  </p>
-</form>
+        <p class="support-line">
+          * 有其他问题，<a href="#" onclick="goWhatsappSupport();return false;">点击这里联系客服</a> *
+        </p>
+      </form>
     </div>
 
     <!-- SUCCESS VIEW -->
@@ -1053,7 +677,6 @@ document.querySelectorAll('.chip-opt input').forEach(inp=>{
 
 function updateFormFields(){
   const product = document.querySelector('input[name="product"]:checked');
-  const location = document.querySelector('input[name="location"]:checked');
   const onlineOpt = document.getElementById('onlineOpt');
   const measureRow = document.getElementById('measureRow');
   const sleepRow = document.getElementById('sleepRow');
@@ -1080,10 +703,12 @@ function updateFormFields(){
   document.querySelector('input[name="height"]').required = isPillowOnline;
   document.querySelector('input[name="weight"]').required = isPillowOnline;
   document.querySelectorAll('input[name="sleep"]').forEach(r => r.required = isPillowOnline);
+
+  // Pax row shows for any in-person location (any location that isn't Online)
   const paxRow = document.getElementById('paxRow');
-const isInPerson = loc && (loc.value==='KL 8Trium' || loc.value==='Penang Butterworth');
-paxRow.style.display = isInPerson ? '' : 'none';
-document.querySelector('input[name="pax"]').required = isInPerson;
+  const isInPerson = loc && loc.value && loc.value !== 'Online';
+  paxRow.style.display = isInPerson ? '' : 'none';
+  document.querySelector('input[name="pax"]').required = isInPerson;
 }
 
 let lastFormData = null;
@@ -1091,7 +716,7 @@ let lastFormData = null;
 function submitForm(e){
   e.preventDefault();
   const fd = new FormData(document.getElementById('bookingForm'));
-const data = {
+  const data = {
     name: fd.get('name') || '',
     phone: fd.get('phone') || '',
     age: fd.get('age') || '',
@@ -1127,16 +752,16 @@ function goWhatsapp(d){
   const info = d || lastFormData;
   let text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
   if(info){
-text += '1. 姓名：' + info.name + '\n';
-text += '2. 电话号码：' + info.phone + '\n';
-text += '3. 年龄：' + info.age + '\n';
-text += '4. 几位要来：' + info.pax + '\n';
-text += '5. 看枕头/床垫：' + info.product + '\n';
-text += '6. 咨询地点：' + info.location + '\n';
-if(info.height) text += '7. 身高 (cm)：' + info.height + '\n';
-if(info.weight) text += '8. 体重 (kg)：' + info.weight + '\n';
-if(info.sleep)  text += '9. 平时睡姿：' + info.sleep + '\n';
-text += '10. 目前问题：' + (info.issues || '-');
+    text += '1. 姓名：' + info.name + '\n';
+    text += '2. 电话号码：' + info.phone + '\n';
+    text += '3. 年龄：' + info.age + '\n';
+    text += '4. 几位要来：' + info.pax + '\n';
+    text += '5. 看枕头/床垫：' + info.product + '\n';
+    text += '6. 咨询地点：' + info.location + '\n';
+    if(info.height) text += '7. 身高 (cm)：' + info.height + '\n';
+    if(info.weight) text += '8. 体重 (kg)：' + info.weight + '\n';
+    if(info.sleep)  text += '9. 平时睡姿：' + info.sleep + '\n';
+    text += '10. 目前问题：' + (info.issues || '-');
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text),'_blank');
 }
@@ -1145,6 +770,7 @@ function goWhatsappSupport(){
   const msg = encodeURIComponent('我有其他问题，请帮我对接客服');
   window.open('https://wa.me/60139668518?text=' + msg,'_blank');
 }
+
 // Custom form validation — red inline errors
 document.querySelectorAll('#bookingForm input, #bookingForm select, #bookingForm textarea').forEach(field => {
   field.addEventListener('invalid', function(e){
