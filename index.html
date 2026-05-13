@@ -52,6 +52,7 @@ a{color:inherit;text-decoration:none}
 
 /* SECTION */
 section{padding:80px 0;position:relative;overflow:hidden}
+#info{padding-top:36px}
 .sec-soft{background:var(--soft)}
 .sec-white{background:var(--white)}
 
@@ -83,6 +84,7 @@ section{padding:80px 0;position:relative;overflow:hidden}
 
 /* Block titles for Locations / FAQ */
 .block{margin-top:80px}
+.locations.block{margin-top:130px}
 .block-title{
   font-family:'Playfair Display','Noto Sans SC',serif;
   font-weight:700;
@@ -418,9 +420,12 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
           </div>
         </div>
 
-        <div class="process-note-wrap" style="margin-top:24px">
-          <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
-        </div>
+        <div class="process-note-wrap" style="margin-top:16px">
+  <p class="process-note">⏱ 整个过程只需要大概 45 分钟到 1 小时就能完成！</p>
+  <div style="margin-top:20px">
+    <button class="btn-pill" onclick="openForm()">马上预约我的位子！ →</button>
+  </div>
+</div>
       </div>
 
     </div>
@@ -646,10 +651,18 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 </div>
 
 <script>
+let formOpenedOnce = false;
 function openForm(){
+  formOpenedOnce = true;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
+window.addEventListener('scroll', () => {
+  if (formOpenedOnce) return;
+  if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 200) {
+    openForm();
+  }
+}, { passive: true });
 function closeForm(){
   document.getElementById('modal').classList.remove('open');
   document.body.style.overflow='';
