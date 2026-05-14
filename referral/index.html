@@ -505,6 +505,9 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
               <label class="mini-chip">
                 <input type="radio" name="heroLocation" value="Penang Butterworth"> Penang Butterworth
               </label>
+              <label class="mini-chip">
+                <input type="radio" name="heroLocation" value="Bukit Jalil HQ"> Bukit Jalil HQ
+              </label>
             </div>
             <div class="mini-error" id="errLocation">⚠ 请选择一项</div>
           </div>
@@ -812,6 +815,8 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             <label class="chip-opt"><input type="checkbox" name="issue" value="富贵包/颈椎前倾"><span id="issue-6">富贵包 / 颈椎前倾</span></label>
             <label class="chip-opt"><input type="checkbox" name="issue" value="其他"><span id="issue-7">其他</span></label>
           </div>
+          <input type="text" id="issueOtherInput" name="issue_other"
+            style="display:none;margin-top:12px;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:inherit;width:100%;background:#fff" />
         </div>
 
         <button type="submit" id="modal-submit" class="btn-pill form-submit">Submit →</button>
@@ -1105,6 +1110,13 @@ document.querySelectorAll('.chip-opt input').forEach(inp => {
   });
 });
 
+// ===== "其他" CHECKBOX → SHOW/HIDE TEXT INPUT =====
+document.querySelector('input[name="issue"][value="其他"]').addEventListener('change', function(e) {
+  const box = document.getElementById('issueOtherInput');
+  box.style.display = e.target.checked ? 'block' : 'none';
+  if (!e.target.checked) box.value = '';
+});
+
 // ===== INLINE VALIDATION ERRORS =====
 document.querySelectorAll('#bookingForm input').forEach(field => {
   field.addEventListener('invalid', function(e) {
@@ -1135,7 +1147,8 @@ function submitForm(e) {
     location: fd.get('location') || '',
     referral_person: fd.get('referral_person') || '',
     referral_clinic: fd.get('referral_clinic') || '',
-    issues:   (fd.getAll('issue') || []).join('、')
+    issues:   (fd.getAll('issue') || []).join('、'),
+    issue_other: fd.get('issue_other') || ''
   };
   lastFormData = data;
 
@@ -1152,6 +1165,7 @@ function submitForm(e) {
       Referral_Person: data.referral_person,
       Referral_Clinic: data.referral_clinic,
       Issues:    data.issues,
+      Issue_Other: data.issue_other,
       Source:    'Referral Page'
     }]
   };
@@ -1183,6 +1197,7 @@ function goWhatsapp(d) {
     text += '7. 由谁介绍：'   + info.referral_person + '\n';
     text += '8. 介绍人诊所：'  + info.referral_clinic + '\n';
     text += '9. 目前问题：'   + (info.issues || '-');
+    if (info.issue_other) text += '\n   ↳ 其他详情：' + info.issue_other;
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text), '_blank');
 }
