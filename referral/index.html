@@ -1147,8 +1147,10 @@ function submitForm(e) {
     location: fd.get('location') || '',
     referral_person: fd.get('referral_person') || '',
     referral_clinic: fd.get('referral_clinic') || '',
-    issues:   (fd.getAll('issue') || []).join('、'),
-    issue_other: fd.get('issue_other') || ''
+    issues: (fd.getAll('issue') || []).map(i => {
+      const other = fd.get('issue_other') || '';
+      return (i === '其他' && other) ? `其他: ${other}` : i;
+    }).join('、')
   };
   lastFormData = data;
 
@@ -1165,7 +1167,6 @@ function submitForm(e) {
       Referral_Person: data.referral_person,
       Referral_Clinic: data.referral_clinic,
       Issues:    data.issues,
-      Issue_Other: data.issue_other,
       Source:    'Referral Page'
     }]
   };
@@ -1197,7 +1198,6 @@ function goWhatsapp(d) {
     text += '7. 由谁介绍：'   + info.referral_person + '\n';
     text += '8. 介绍人诊所：'  + info.referral_clinic + '\n';
     text += '9. 目前问题：'   + (info.issues || '-');
-    if (info.issue_other) text += '\n   ↳ 其他详情：' + info.issue_other;
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text), '_blank');
 }
