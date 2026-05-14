@@ -832,6 +832,20 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
 <script>
 // ===== LANGUAGE TOGGLE =====
+let currentLang = 'cn';
+
+// Value translations for sheet + WhatsApp (only used when EN is selected)
+const productEn = { '枕头': 'Pillow', '床垫': 'Mattress' };
+const issueEn = {
+  '经常落枕': 'Stiff Neck',
+  '肩颈酸痛': 'Shoulder & Neck Pain',
+  '腰酸背痛': 'Lower Back Pain',
+  '难以入睡/浅眠': 'Insomnia / Light Sleep',
+  '睡醒更累': 'Wake Up Tired',
+  '富贵包/颈椎前倾': 'Hunchback / Forward Neck',
+  '其他': 'Others'
+};
+
 const translations = {
   en: {
     credBar: 'Helped<strong>10,000+</strong>find the right mattress and pillow',
@@ -944,6 +958,7 @@ const translations = {
 };
 
 function setLang(lang) {
+  currentLang = lang;
   const t = translations[lang];
   document.getElementById('btn-en').style.color = lang === 'en' ? 'var(--deep)' : 'var(--mute)';
   document.getElementById('btn-cn').style.color = lang === 'cn' ? 'var(--deep)' : 'var(--mute)';
@@ -1143,14 +1158,17 @@ function submitForm(e) {
     phone:    fd.get('phone')    || '',
     age:      fd.get('age')      || '',
     pax:      fd.get('pax')      || '',
-    product:  fd.get('product')  || '',
+    product:  currentLang === 'en' ? (productEn[fd.get('product')] || fd.get('product') || '') : (fd.get('product') || ''),
     location: fd.get('location') || '',
     referral_person: fd.get('referral_person') || '',
     referral_clinic: fd.get('referral_clinic') || '',
     issues: (fd.getAll('issue') || []).map(i => {
       const other = fd.get('issue_other') || '';
-      return (i === '其他' && other) ? `其他: ${other}` : i;
-    }).join('、')
+      if (i === '其他' && other) {
+        return currentLang === 'en' ? `Others: ${other}` : `其他: ${other}`;
+      }
+      return currentLang === 'en' ? (issueEn[i] || i) : i;
+    }).join(currentLang === 'en' ? ', ' : '、')
   };
   lastFormData = data;
 
@@ -1187,24 +1205,42 @@ function submitForm(e) {
 // ===== WHATSAPP =====
 function goWhatsapp(d) {
   const info = d || lastFormData;
-  let text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
-  if (info) {
-    text += '1. 姓名：'       + info.name     + '\n';
-    text += '2. 电话号码：'   + info.phone    + '\n';
-    text += '3. 年龄：'       + info.age      + '\n';
-    text += '4. 几位要来：'   + info.pax      + '\n';
-    text += '5. 看枕头/床垫：' + info.product  + '\n';
-    text += '6. 咨询地点：'   + info.location + '\n';
-    text += '7. 由谁介绍：'   + info.referral_person + '\n';
-    text += '8. 介绍人诊所：'  + info.referral_clinic + '\n';
-    text += '9. 目前问题：'   + (info.issues || '-');
+  let text;
+  if (currentLang === 'en') {
+    text = 'Hi! I just filled in the form. I\'d like to book a Lunox sleep consultation.\n\n';
+    if (info) {
+      text += '1. Name: '              + info.name     + '\n';
+      text += '2. Phone: '             + info.phone    + '\n';
+      text += '3. Age: '               + info.age      + '\n';
+      text += '4. Pax: '               + info.pax      + '\n';
+      text += '5. Pillow/Mattress: '   + info.product  + '\n';
+      text += '6. Location: '          + info.location + '\n';
+      text += '7. Referred By: '       + info.referral_person + '\n';
+      text += '8. Referring Clinic: '  + info.referral_clinic + '\n';
+      text += '9. Main Concern: '      + (info.issues || '-');
+    }
+  } else {
+    text = '你好！我刚刚填了资料，想预约 Lunox 的睡眠咨询。\n\n';
+    if (info) {
+      text += '1. 姓名：'       + info.name     + '\n';
+      text += '2. 电话号码：'   + info.phone    + '\n';
+      text += '3. 年龄：'       + info.age      + '\n';
+      text += '4. 几位要来：'   + info.pax      + '\n';
+      text += '5. 看枕头/床垫：' + info.product  + '\n';
+      text += '6. 咨询地点：'   + info.location + '\n';
+      text += '7. 由谁介绍：'   + info.referral_person + '\n';
+      text += '8. 介绍人诊所：'  + info.referral_clinic + '\n';
+      text += '9. 目前问题：'   + (info.issues || '-');
+    }
   }
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(text), '_blank');
 }
 
 function goWhatsappSupport() {
-  const msg = encodeURIComponent('我有其他问题，请帮我对接客服');
-  window.open('https://wa.me/60139668518?text=' + msg, '_blank');
+  const msg = currentLang === 'en'
+    ? 'I have other questions, please connect me with customer service.'
+    : '我有其他问题，请帮我对接客服';
+  window.open('https://wa.me/60139668518?text=' + encodeURIComponent(msg), '_blank');
 }
 </script>
 
