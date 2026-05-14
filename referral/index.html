@@ -765,13 +765,13 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
         <!-- 3. Referral — split into 2 fields -->
         <div class="form-row full">
-          <label id="modal-label-referral-person">由哪位脊骨师/医生/物疗师/药剂师介绍？ *</label>
+          <label id="modal-label-referral-person">介绍医师姓名 *</label>
           <input type="text" name="referral_person" required />
           <span id="modal-err-fill" class="error-msg">⚠ 请填写此栏</span>
         </div>
 
         <div class="form-row full">
-          <label id="modal-label-referral-clinic">他/她就业的诊所 *</label>
+          <label id="modal-label-referral-clinic">介绍诊所 / 中心名称 *</label>
           <input type="text" name="referral_clinic" required />
           <span id="modal-err-fill-2" class="error-msg">⚠ 请填写此栏</span>
         </div>
@@ -779,7 +779,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         <!-- 4. Name + Phone + Age + Pax -->
         <div class="form-grid">
           <div class="form-row">
-            <label id="modal-label-name">姓名 *</label>
+            <label id="modal-label-name">你的姓名 *</label>
             <input type="text" name="name" required />
             <span id="modal-err-fill-3" class="error-msg">⚠ 请填写此栏</span>
           </div>
@@ -794,7 +794,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             <span id="modal-err-fill-5" class="error-msg">⚠ 请填写此栏</span>
           </div>
           <div class="form-row">
-            <label id="modal-label-pax">几位要咨询 *</label>
+            <label id="modal-label-pax">咨询人数 *</label>
             <input type="number" name="pax" min="1" required />
             <span id="modal-err-fill-6" class="error-msg">⚠ 请填写此栏</span>
           </div>
@@ -802,7 +802,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
         <!-- 5. Sleep problems -->
         <div class="form-row full">
-          <label id="modal-label-issues">目前睡眠问题 <span class="opt">· 多选</span></label>
+          <label id="modal-label-issues">主要问题 / 咨询原因 <span class="opt">· 多选</span></label>
           <div class="check-group">
             <label class="chip-opt"><input type="checkbox" name="issue" value="经常落枕"><span id="issue-1">经常落枕</span></label>
             <label class="chip-opt"><input type="checkbox" name="issue" value="肩颈酸痛"><span id="issue-2">肩颈酸痛</span></label>
@@ -837,7 +837,7 @@ const translations = {
     miniOpt1a: '<input type="radio" name="heroProduct" value="枕头"> Pillow',
     miniOpt1b: '<input type="radio" name="heroProduct" value="床垫"> Mattress',
     miniLabel2: 'Consultation Location *',
-    miniLabel3: 'Phone Number *',
+    miniLabel3: 'Your Contact Number *',
     miniBtn: 'Book My Slot! →',
     miniNote: 'Note: We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊',
     testiTitle: 'You\'ll Feel the Same After You Visit',
@@ -862,14 +862,14 @@ const translations = {
     modalOptMattress: 'Mattress',
     modalErrSelect: '⚠ Please select one',
     modalLabelLocation: 'Consultation Location *',
-    modalLabelReferralPerson: 'Name of the chiropractor / doctor / physio / pharmacist who referred you? *',
-    modalLabelReferralClinic: 'Their clinic *',
+    modalLabelReferralPerson: 'Referring Practitioner’s Name *',
+    modalLabelReferralClinic: 'Referring Clinic / Centre Name *',
     modalErrFill: '⚠ Please fill in this field',
-    modalLabelName: 'Name *',
-    modalLabelPhone: 'Phone Number *',
+    modalLabelName: 'Your Name *',
+    modalLabelPhone: 'Your Contact Number *',
     modalLabelAge: 'Age *',
-    modalLabelPax: 'No. of persons *',
-    modalLabelIssues: 'Current Sleep Issues <span class="opt">· Multiple select</span>',
+    modalLabelPax: 'Number of Pax Attending Consultation *',
+    modalLabelIssues: 'Main Concern / Reason for Consultation <span class="opt">· Multiple select</span>',
     issue1: 'Stiff Neck',
     issue2: 'Shoulder & Neck Pain',
     issue3: 'Lower Back Pain',
@@ -916,14 +916,14 @@ const translations = {
     modalOptMattress: '床垫 Mattress',
     modalErrSelect: '⚠ 请选择一项',
     modalLabelLocation: '咨询地点 *',
-    modalLabelReferralPerson: '由哪位脊骨师/医生/物疗师/药剂师介绍？ *',
-    modalLabelReferralClinic: '他/她就业的诊所 *',
+    modalLabelReferralPerson: '介绍医师姓名 *',
+    modalLabelReferralClinic: '介绍诊所 / 中心名称 *',
     modalErrFill: '⚠ 请填写此栏',
-    modalLabelName: '姓名 *',
+    modalLabelName: '你的姓名 *',
     modalLabelPhone: '电话号码 *',
     modalLabelAge: '年龄 *',
-    modalLabelPax: '几位要咨询 *',
-    modalLabelIssues: '目前睡眠问题 <span class="opt">· 多选</span>',
+    modalLabelPax: '咨询人数 *',
+    modalLabelIssues: '主要问题 / 咨询原因 <span class="opt">· 多选</span>',
     issue1: '经常落枕',
     issue2: '肩颈酸痛',
     issue3: '腰酸背痛',
