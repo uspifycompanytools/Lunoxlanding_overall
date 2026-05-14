@@ -367,6 +367,23 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .form-grid{grid-template-columns:1fr}
 }
 </style>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1468529067803111');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1468529067803111&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 
@@ -656,6 +673,10 @@ function openForm(){
   formOpenedOnce = true;
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
+    // ⬇ FIRE MID-FUNNEL EVENT
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'InitiateCheckout');
+  }
 }
 window.addEventListener('scroll', () => {
   if (formOpenedOnce) return;
@@ -753,11 +774,22 @@ function submitForm(e){
       Source: 'Landing Page'
     }]
   };
-  fetch('https://sheetdb.io/api/v1/t0lypbl3dsnkz?sheet=Landing Page', {
+fetch('https://sheetdb.io/api/v1/t0lypbl3dsnkz?sheet=Landing Page', {
     method: 'POST',
     headers: {'Content-Type':'application/json'},
     body: JSON.stringify(payload)
   }).catch(()=>{});
+
+  // ⬇ FIRE LEAD EVENT (before WhatsApp redirect)
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', {
+      content_name: 'Sleep Consultation Booking',
+      content_category: data.product,   // 枕头 or 床垫
+      value: 25,
+      currency: 'MYR'
+    });
+  }
+
   goWhatsapp(data);
 }
 
