@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-Hans">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Lunox — 你的医生 / 专科为你安排的睡眠咨询</title>
+<title>Lunox — Sleep Consultation by Our Doctors</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
@@ -472,7 +472,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       <!-- LEFT: Image -->
       <div class="hero-left">
         <div class="hero-img-wrap">
-          <img src="hero-image-2.png" alt="Lunox Healthcare Team — Dr. Daniel & Giselle" />
+          <img src="hero-image-latest.png" alt="Lunox Healthcare Team" />
         </div>
       </div>
 
@@ -500,13 +500,13 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
             <span id="mini-label-2" class="mini-field-label">咨询地点 *</span>
             <div class="mini-radio-group" id="heroLocationGroup">
               <label class="mini-chip">
-                <input type="radio" name="heroLocation" value="KL 8Trium"> KL 8Trium
+                <input type="radio" name="heroLocation" value="Zest Point HQ, KL"> Zest Point HQ, KL
               </label>
               <label class="mini-chip">
-                <input type="radio" name="heroLocation" value="Penang Butterworth"> Penang Butterworth
+                <input type="radio" name="heroLocation" value="8trium, KL"> 8trium, KL
               </label>
               <label class="mini-chip">
-                <input type="radio" name="heroLocation" value="Bukit Jalil HQ"> Bukit Jalil HQ
+                <input type="radio" name="heroLocation" value="Butterworth, Penang"> Butterworth, Penang
               </label>
             </div>
             <div class="mini-error" id="errLocation">⚠ 请选择一项</div>
@@ -576,7 +576,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     -->
     <div style="text-align:center;margin-top:70px">
       <h3 id="partner-title" style="font-family:'Playfair Display',serif;color:var(--deep);font-size:clamp(22px,2.4vw,30px);margin-bottom:30px;font-weight:600">
-        与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证
+        与 <em style="color:var(--orchid);font-style:italic">全马 50+ 家 Klinik Chiro</em> 合作认证
       </h3>
       <div class="logo-marquee">
         <div class="logo-track">
@@ -759,9 +759,9 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
         <div class="form-row full">
           <label id="modal-label-location">咨询地点 *</label>
           <div class="radio-group">
-            <label class="chip-opt"><input type="radio" name="location" value="KL 8Trium" required>KL 8Trium</label>
-            <label class="chip-opt"><input type="radio" name="location" value="Penang Butterworth">Penang Butterworth</label>
-            <label class="chip-opt"><input type="radio" name="location" value="Bukit Jalil HQ">Bukit Jalil HQ</label>
+            <label class="chip-opt"><input type="radio" name="location" value="Zest Point HQ, KL" required>Zest Point HQ, KL</label>
+            <label class="chip-opt"><input type="radio" name="location" value="8trium, KL">8trium, KL</label>
+            <label class="chip-opt"><input type="radio" name="location" value="Butterworth, Penang">Butterworth, Penang</label>
             <span id="modal-err-location" class="error-msg">⚠ 请选择一项</span>
           </div>
         </div>
@@ -832,7 +832,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 
 <script>
 // ===== LANGUAGE TOGGLE =====
-let currentLang = 'cn';
+let currentLang = 'en';
 
 // Value translations for sheet + WhatsApp (only used when EN is selected)
 const productEn = { '枕头': 'Pillow', '床垫': 'Mattress' };
@@ -861,7 +861,7 @@ const translations = {
     miniNote: 'Note: We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊',
     testiTitle: 'You\'ll Feel the Same After You Visit',
     proofGoogle: 'Google 5-Star Reviews',
-    partnerTitle: 'Certified by <em style="color:var(--orchid);font-style:italic">20+ Chiro Clinics</em> Nationwide',
+    partnerTitle: 'Certified by <em style="color:var(--orchid);font-style:italic">50+ Chiro Clinics</em> Nationwide',
     processTitle: 'From Sleep Consultation to Product Selection, <br>All Done by <em> Our Doctors</em>',
     step1Title: 'One-on-One Sleep Consultation',
     step1Desc: 'Understanding your sleep posture, body condition and daily routine.',
@@ -915,7 +915,7 @@ const translations = {
     miniNote: '⚠️注：我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊',
     testiTitle: '你来之后，也会跟他们<em>有一样的感受</em>',
     proofGoogle: 'Google 5 星顾客好评',
-    partnerTitle: '与 <em style="color:var(--orchid);font-style:italic">全马 20+ 家 Klinik Chiro</em> 合作认证',
+    partnerTitle: '与 <em style="color:var(--orchid);font-style:italic">全马 50+ 家 Klinik Chiro</em> 合作认证',
     processTitle: '从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成',
     step1Title: '医师一对一睡眠咨询',
     step1Desc: '了解你的睡姿、身体状况和日常作息。',
@@ -1242,6 +1242,9 @@ function goWhatsappSupport() {
     : '我有其他问题，请帮我对接客服';
   window.open('https://wa.me/60139668518?text=' + encodeURIComponent(msg), '_blank');
 }
+
+// Default the page to English on load (Chinese remains available via the toggle)
+setLang('en');
 </script>
 
 </body>
