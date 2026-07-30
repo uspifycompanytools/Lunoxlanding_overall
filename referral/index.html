@@ -160,9 +160,10 @@ section{padding:90px 0;position:relative;overflow:hidden}
 .mini-phone-input:focus{outline:none;border-color:var(--deep)}
 .mini-form-card .btn-pill{width:100%;justify-content:center;font-size:15px;margin-top:6px}
 .mini-deposit-note{
-  font-size:12px;color:var(--mute);
-  text-align:center;margin-top:14px;line-height:1.6;
-  background:var(--soft-2);padding:10px 14px;border-radius:10px;
+  font-size:14px;color:var(--mute);line-height:1.7;
+  text-align:left;margin-top:14px;
+  background:var(--soft);padding:14px 16px;border-radius:12px;
+  border-left:3px solid var(--orchid);
 }
 .mini-error{
   font-size:12px;color:#E11D48;margin-top:5px;display:none;font-weight:500;
@@ -545,7 +546,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
     <div class="proof-row">
       <div class="proof-item">
         <img src="health-award.png" alt="Natural Health 健康时尚 Awards 2023" />
-        <div class="txt">
+        <div id="award-text" class="txt">
           荣获 <strong>Natural Health &amp; 健康时尚</strong><br>
           Readers' Choice Awards 2023<br>
           <strong>最佳枕头 &amp; 抱枕奖</strong>
@@ -926,8 +927,9 @@ const translations = {
     miniLabel2: 'Consultation Location *',
     miniLabel3: 'Your Contact Number *',
     miniBtn: 'Book My Slot! →',
-    miniNote: 'Note: We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊',
+    miniNote: '<strong>⚠️ Note:</strong> We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊<br><br>Referral discount is only valid after your appointment is booked. Form submission alone does not qualify.',
     testiTitle: 'You\'ll Feel the Same After You Visit',
+    awardText: 'Awarded <strong>Natural Health &amp; Fashion</strong><br>Readers\' Choice Awards 2023<br><strong>Best Pillow &amp; Cushion Award</strong>',
     proofGoogle: 'Google 5-Star Reviews',
     partnerTitle: 'Certified by <em style="color:var(--orchid);font-style:italic">50+ Chiro Clinics</em> Nationwide',
     processTitle: 'From Sleep Consultation to Product Selection, <br>All Done by <em> Our Doctors</em>',
@@ -943,7 +945,7 @@ const translations = {
     locLabelHours: 'Hours',
     ctaBtn: 'Book My Slot! →',
     modalTitle: 'Fill in Your Details for Our <em>Doctor</em>',
-    modalSub: '<strong>⚠️ Note:</strong> We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊',
+    modalSub: '<strong>⚠️ Note:</strong> We\'ll collect a RM25 consultation fee on the day (worth RM180). It will be fully deducted from your purchase. No pressure, you\'ll still get a full professional consultation! 😊<br><br>Referral discount is only valid after your appointment is booked. Form submission alone does not qualify.',
     modalLabelProduct: 'Consulting Pillow / Mattress *',
     modalOptPillow: 'Pillow',
     modalOptMattress: 'Mattress',
@@ -980,8 +982,9 @@ const translations = {
     miniLabel2: '咨询地点 *',
     miniLabel3: '电话号码 *',
     miniBtn: '我要预约医生的时间！ →',
-    miniNote: '⚠️注：我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊',
+    miniNote: '<strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊<br><br>转介优惠仅在您成功预约后才生效，仅填写表单并不代表符合资格。',
     testiTitle: '你来之后，也会跟他们<em>有一样的感受</em>',
+    awardText: '荣获 <strong>Natural Health &amp; 健康时尚</strong><br>Readers\' Choice Awards 2023<br><strong>最佳枕头 &amp; 抱枕奖</strong>',
     proofGoogle: 'Google 5 星顾客好评',
     partnerTitle: '与 <em style="color:var(--orchid);font-style:italic">全马 50+ 家 Klinik Chiro</em> 合作认证',
     processTitle: '从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成',
@@ -997,7 +1000,7 @@ const translations = {
     locLabelHours: '营业时间',
     ctaBtn: '我要预约医生的时间！ →',
     modalTitle: '填写你资料，让 <em>医师</em> 提前了解你',
-    modalSub: '<strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊',
+    modalSub: '<strong>⚠️注：</strong>我们当天会收取 RM25 咨询费（价值 RM180）。而且这个费用会在当天购买的产品中直接扣除哦～没有强制消费，觉得不合适也没关系，你依然享有一次完整的专业医师咨询！😊<br><br>转介优惠仅在您成功预约后才生效，仅填写表单并不代表符合资格。',
     modalLabelProduct: '要预约看枕头还是床垫？*',
     modalOptPillow: '枕头',
     modalOptMattress: '床垫',
@@ -1046,6 +1049,7 @@ function setLang(lang) {
   document.getElementById('mini-btn').innerHTML = t.miniBtn;
   document.getElementById('mini-note').innerHTML = t.miniNote;
   document.getElementById('testi-title').innerHTML = t.testiTitle;
+  document.getElementById('award-text').innerHTML = t.awardText;
   document.getElementById('proof-google').innerHTML = t.proofGoogle;
   document.getElementById('partner-title').innerHTML = t.partnerTitle;
   document.getElementById('process-title').innerHTML = t.processTitle;
