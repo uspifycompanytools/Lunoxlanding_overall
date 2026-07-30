@@ -94,9 +94,10 @@ section{padding:90px 0;position:relative;overflow:hidden}
 .cred-bar .dot{width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
 
 .hero-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:end;
+  display:flex;flex-direction:column;align-items:center;gap:40px;
 }
-.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;}
+.hero-left{display:flex;flex-direction:column;align-items:center;text-align:center;justify-content:center;width:100%;max-width:920px;margin:0 auto;}
+.hero-form-col{width:100%;max-width:600px;margin:0 auto;}
 .hero h1{
   font-family:'Playfair Display','Noto Sans SC',serif;
   font-size:clamp(32px,4vw,54px);
@@ -235,7 +236,7 @@ section{padding:90px 0;position:relative;overflow:hidden}
   object-fit:cover;
   box-shadow:0 20px 50px rgba(73,0,82,.12);
 }
-.process-right .h-section{text-align:left}
+.process-title-banner{margin-bottom:50px}
 .process-sub{
   font-size:16px;color:var(--mute);
   margin-top:14px;line-height:1.7;
@@ -399,7 +400,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .hero{padding:40px 0 60px}
   .hero-brand{margin:0 auto 28px}
   .hero-brand img{height:55px}
-  .hero-grid{grid-template-columns:1fr;gap:30px}
+  .hero-grid{gap:30px}
   .cred-bar{display:inline-flex;align-items:center;gap:10px;align-self:center;font-size:12px;padding:8px 14px;max-width:100%;}
   .hero h1{font-size:clamp(28px,7vw,38px);line-height:1.18}
   .hero-tag{font-size:16px;margin-top:16px}
@@ -414,9 +415,9 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
   .logo-track img{height:44px}
 
   /* Process */
+  .process-title-banner{margin-bottom:30px}
   .process-2col{grid-template-columns:1fr;gap:30px}
   .process-left{position:relative;top:0}
-  .process-right .h-section{text-align:center}
   .process-sub{text-align:center}
   .location-grid{grid-template-columns:1fr;gap:16px}
 
@@ -477,7 +478,7 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
       </div>
 
       <!-- RIGHT: Mini Form Card -->
-      <div>
+      <div class="hero-form-col">
         <div class="mini-form-card">
           <div id="mini-title" class="mini-form-title">填写你资料，让<em> 医师 </em>提前了解你</div>
 
@@ -616,12 +617,12 @@ footer p{color:rgba(255,255,255,.7);font-size:14px;margin-top:6px}
 <!-- ===== PROCESS (2-col layout) ===== -->
 <section class="sec-soft" id="process">
   <div class="wrap">
+    <h2 id="process-title" class="h-section process-title-banner">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
+
     <div class="process-2col">
 
       <!-- LEFT: Content -->
       <div class="process-right">
-        <h2 id="process-title" class="h-section">从睡眠咨询到帮你选<br>都是<em> 医师亲自 </em>陪同完成</h2>
-
         <div class="steps-simple">
           <div class="step-s">
             <div class="snum">1</div>
